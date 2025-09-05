@@ -318,7 +318,7 @@ texture_filter = 1
 texture = ExtResource("7_ioo17")
 
 [node name="orc" parent="." instance=ExtResource("8_gbfbk")]
-position = Vector2(-199, 281)
+position = Vector2(-200, 281)
 
 [connection signal="area_entered" from="borders" to="player" method="_on_leftborder_area_entered"]
 [connection signal="area_entered" from="waterdeath" to="player" method="_on_waterdeath_area_entered"]
