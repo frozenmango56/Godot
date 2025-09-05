@@ -7,7 +7,6 @@ bounce = 0.1
 
 [node name="box" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_g2tbl")
-gravity_scale = -0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_g2tbl")

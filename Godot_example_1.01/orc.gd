@@ -31,14 +31,14 @@ func _physics_process(delta):
 		if player_detected and is_instance_valid(player_node):
 			#caculate the direction from the orc to the player and normalize it.
 			var direction = (player_node.global_position - global_position).normalized()
-			
+			#set horizontal velocity toward the player
+			velocity.x = direction.x * speed
+			sprite.play("walk")
 			#flip the orc's sprite based on its movement direction.
 			if velocity.x < 0:
-				sprite.play("walk")
 				#face left if moving left
 				sprite.flip_h = true
-			elif velocity.x < 0:
-				sprite.play("walk")
+			elif velocity.x > 0:
 				#face left if moving left
 				sprite.flip_h = false
 		else:
