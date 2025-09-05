@@ -1,0 +1,147 @@
+[gd_scene load_steps=20 format=3 uid="uid://csakx4v7cnr8l"]
+
+[ext_resource type="Script" uid="uid://bt41aj3em8ud3" path="res://orc.gd" id="1_3xw0u"]
+[ext_resource type="Texture2D" uid="uid://doytds8pbu2ph" path="res://assets/sprites/Orc.png" id="1_ws5q1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xw0u"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kapy6"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hc3a"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vumo0"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31h1d"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfwqp"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d22v1"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpvyt"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5atpf"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elqaq"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo07l"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgjqm"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo35u"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(600, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koja6"]
+atlas = ExtResource("1_ws5q1")
+region = Rect2(700, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fn73"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xw0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kapy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hc3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vumo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31h1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfwqp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d22v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5atpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elqaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo07l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgjqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo35u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koja6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws5q1"]
+radius = 300.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws5q1"]
+size = Vector2(23, 20)
+
+[node name="orc" type="CharacterBody2D"]
+script = ExtResource("1_3xw0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1fn73")
+animation = &"idle"
+frame_progress = 0.25345
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_ws5q1")
+debug_color = Color(0.963474, 0.163579, 0.261141, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_ws5q1")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

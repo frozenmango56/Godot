@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj06sox31qpfm"]
+
+[ext_resource type="Texture2D" uid="uid://bx1lenlpw22qy" path="res://icon.svg" id="1_g2tbl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2tbl"]
+bounce = 0.1
+
+[node name="box" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_g2tbl")
+gravity_scale = -0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g2tbl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-59, -60, -55, -64, 52, -65, 65, -54, 64, 55, 52, 65, -52, 64, -65, 52, -64, -55)

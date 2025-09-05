@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://5nw4f5kmvqt6"]
+
+[ext_resource type="FontFile" uid="uid://b5oq3oic14g7q" path="res://Mogra,Racing_Sans_One,Roboto,Russo_One/Roboto/static/Roboto-Black.ttf" id="1_3wcc1"]
+[ext_resource type="Script" uid="uid://h6j8l1rhho5c" path="res://button.gd" id="2_jvrxn"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 21.0
+offset_top = 47.0
+offset_right = 345.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("1_3wcc1")
+theme_override_font_sizes/font_size = 80
+text = "THE END"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 139.0
+offset_top = 152.0
+offset_right = 227.0
+offset_bottom = 183.0
+text = "Start Over"
+script = ExtResource("2_jvrxn")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
