@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bonqrbxe78pjb"]
+
+[ext_resource type="Script" uid="uid://47arbb7p8nl2" path="res://bomb.gd" id="1_4fn8o"]
+[ext_resource type="Texture2D" uid="uid://bxyoed1y5afhl" path="res://assests/Ninja Adventure - Asset Pack/Items/Projectile/Bomb.png" id="2_4fn8o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6w74q"]
+radius = 753.214
+
+[sub_resource type="Curve" id="Curve_4fn8o"]
+_data = [Vector2(0.0111421, 0.992614), 0.0, 0.0, 0, 0, Vector2(0.927577, 0.219432), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfxiy"]
+radius = 25.02
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="bomb" type="Area2D" parent="."]
+script = ExtResource("1_4fn8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomb"]
+shape = SubResource("CircleShape2D_6w74q")
+
+[node name="Icon" type="Sprite2D" parent="bomb"]
+texture_filter = 1
+position = Vector2(1, 1)
+texture = ExtResource("2_4fn8o")
+
+[node name="Timer" type="Timer" parent="bomb"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="explosion" type="CPUParticles2D" parent="bomb"]
+position = Vector2(1.40002, 5.20007)
+emitting = false
+amount = 850
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 38.89
+initial_velocity_max = 338.89
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_4fn8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nfxiy")
+
+[connection signal="timeout" from="bomb/Timer" to="bomb" method="_on_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2isqedklb0b7"]
+
+[ext_resource type="Texture2D" uid="uid://c0wgftvkx314l" path="res://assests/Ninja Adventure - Asset Pack/Items/Scroll/Scroll.png" id="1_kq3od"]
+[ext_resource type="Script" uid="uid://c8i4kpl22tesn" path="res://scroll.gd" id="1_xwqay"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq3od"]
+
+[node name="scroll" type="StaticBody2D"]
+script = ExtResource("1_xwqay")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_kq3od")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kq3od")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

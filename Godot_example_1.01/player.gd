@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var gravity = 600
 @export var push_force = 10 #added push force variable
 var death = false
+var upsidedown = false
+var firebox = false
 
 func _physics_process(delta):
 	if death:
@@ -22,14 +24,17 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file("res://end_scene.tscn")
 	
 	# Add gravity every frame
-	velocity.y += gravity * delta
+	if upsidedown == false:
+		velocity.y += gravity * delta
+	if upsidedown == true:
+		velocity.y -= gravity * delta
 
 	# Input affects x axis only
 	var direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * speed
 	
-	#####Shooting. Input map bound to "L####
-	if Input.is_action_just_pressed("shoot"):
+	#####Shooting. Input map bound to "L"####
+	if (firebox == true) or (Input.is_action_just_pressed("shoot")):
 		#Instantiate the fireball and add it to the scene
 		var new_fireball = fireball.instantiate()
 		get_parent().add_child(new_fireball)
@@ -43,7 +48,7 @@ func _physics_process(delta):
 			#player is facin left
 			new_fireball.linear_velocity.x = -shoot_momentum
 		else:
-			#player si facing right
+			#player is facing right
 			new_fireball.linear_velocity.x = shoot_momentum
 
 	# Flip the sprite based on the horizontal direction
@@ -54,16 +59,17 @@ func _physics_process(delta):
    
 	# Play the appropriate animation
 	if direction != 0:
-		$AnimatedSprite2D.play("default") # Assuming you have a "run" animation
+		$AnimatedSprite2D.play("walk") # Assuming you have a "run" animation
 	else:
 		$AnimatedSprite2D.play("idle") # Assuming you have an "idle" animation
 
 	move_and_slide()
 	$CanvasLayer/Label.text = "Score: " + str(Globalvariables.score) +  "\nLives: " + str(Globalvariables.lives)
 	 # Only allow jumping when on the ground
-	if Input  .    is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 		$jump.play()
+		
 #################PUSHING RIGIDBODIES#######################3333
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -76,12 +82,11 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Border"):
 		death = true
-		###CREATE TIMER
 		Globalvariables.lives -= 1
 		Globalvariables.score = 0
 		#### Reload scene
 		get_tree().reload_current_scene()
-	if area.is_in_group("slime") or area.is_in_group("slimechain"):
+	elif area.is_in_group("slime") or area.is_in_group("slimechain"):
 		death = true
 		$AnimatedSprite2D.play("death")
 		###CREATE TIMER
@@ -90,14 +95,55 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		Globalvariables.score = 0
 		#### Reload scene
 		get_tree().reload_current_scene()
-	if area.is_in_group("coin"):
+	elif area.is_in_group("coin"):
 		Globalvariables.score += 1
 		$CanvasLayer/Label.text = "SCORE: " + str(Globalvariables.score)
 		$CanvasLayer/Label.text = "LIVES: " + str(Globalvariables.lives)
 		$coin_sound.play()
-	if area.is_in_group("question"):
+	elif area.is_in_group("blue_coin") or area.is_in_group("red_coin") or area.is_in_group("orange_coin"):
+		Globalvariables.score += 2
+		$CanvasLayer/Label.text = "SCORE: " + str(Globalvariables.score)
+		$CanvasLayer/Label.text = "LIVES: " + str(Globalvariables.lives)
+		$coin_sound.play()
+	elif area.is_in_group("green_coin"):
+		Globalvariables.score += 3
+		$CanvasLayer/Label.text = "SCORE: " + str(Globalvariables.score)
+		$CanvasLayer/Label.text = "LIVES: " + str(Globalvariables.lives)
+		$coin_sound.play()
+	elif area.is_in_group("purple_coin"):
+		Globalvariables.score += 5
+		$CanvasLayer/Label.text = "SCORE: " + str(Globalvariables.score)
+		$CanvasLayer/Label.text = "LIVES: " + str(Globalvariables.lives)
+		$coin_sound.play()
+	elif area.is_in_group("rainbow_coin"):
+		Globalvariables.score += 10
+		$CanvasLayer/Label.text = "SCORE: " + str(Globalvariables.score)
+		$CanvasLayer/Label.text = "LIVES: " + str(Globalvariables.lives)
+		$coin_sound.play()
+	elif area.is_in_group("orc"):
+		death = true
+		await get_tree().create_timer(.5).timeout
+		$AnimatedSprite2D.play("death")
+		###CREATE TIMER
+		await get_tree().create_timer(1).timeout
+		Globalvariables.lives -= 1
+		Globalvariables.score = 0
+		#### Reload scene
+		get_tree().reload_current_scene()
+	elif area.is_in_group("speedblock"):
 		speed = 400
-
+	elif area.is_in_group("jumpblock"):
+		jump_speed = -500
+	elif area.is_in_group("bluefireblock"):
+		Globalvariables.fireball_color = "blue"
+		Globalvariables.fireball_damage = 2
+	elif area.is_in_group("purplefireblock"):
+		Globalvariables.fireball_color = "purple"
+		Globalvariables.fireball_damage = 5
+	elif area.is_in_group("greenfireblock"):
+		Globalvariables.fireball_color = "green"
+		Globalvariables.fireball_damage = 10
+		
 
 func _on_waterdeath_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
@@ -130,19 +176,19 @@ func _on_exit_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		#####change scenes###
 		#get_tree().change_scene_to_file("res://world_3.tscn")
-		get_tree().call_deferred("change_scene_to_file", "res://world_3.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://elliots_world_1.tscn")
 
 func _on_uspidedown_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		###### flips the entire chracter and all of its child nodes vertically
 		scale.y =-1
-		gravity = -600
+		upsidedown = true
 
 func _on_uspidedown_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		###### flips the entire chracter and all of its child nodes vertically
 		scale.y = 1
-		gravity = 600
+		upsidedown = false
 
 func _on_exit_2_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
@@ -151,7 +197,7 @@ func _on_exit_2_area_entered(area: Area2D) -> void:
 
 func _on_ladder_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
-		gravity = -100
+		gravity = -600
 
 func _on_ladder_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Player"):
@@ -159,5 +205,11 @@ func _on_ladder_area_exited(area: Area2D) -> void:
 
 func _on_bigger_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
-		scale.x = 2
-		scale.y = 2
+		scale.x += 1
+		scale.y += 1
+
+
+func _on_exit_3_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Player"):
+		#####change scenes###
+		get_tree().change_scene_to_file("res://elliots_world_2.tscn")

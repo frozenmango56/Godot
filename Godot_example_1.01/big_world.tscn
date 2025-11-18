@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bkjl3jge1ekc"]
+[gd_scene load_steps=10 format=4 uid="uid://bkjl3jge1ekc"]
 
 [ext_resource type="Texture2D" uid="uid://dvbfgg3lg2aqf" path="res://assets/sprites/world_tileset.png" id="1_4ygkp"]
 [ext_resource type="PackedScene" uid="uid://bato1ku5uxh75" path="res://player.tscn" id="2_ac3v3"]
-[ext_resource type="PackedScene" uid="uid://dhq3i2k1byhqu" path="res://slime-monster.tscn" id="3_ac3v3"]
+[ext_resource type="PackedScene" uid="uid://dhq3i2k1byhqu" path="res://green_slime_monster.tscn" id="3_ac3v3"]
 [ext_resource type="PackedScene" uid="uid://dal2jgmj3rekh" path="res://coin.tscn" id="4_7g6nb"]
+[ext_resource type="PackedScene" uid="uid://csakx4v7cnr8l" path="res://orc.tscn" id="5_860so"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7g6nb"]
 texture = ExtResource("1_4ygkp")
@@ -177,7 +178,7 @@ position = Vector2(16, -9)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAAAVAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAXAAEAAAAAAAAAAAARAAAAAAAAAAUAAAARAP//AAAAAAQAAAARAP7/AAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAAAVAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAXAAEAAAAAAAAAAAARAAAAAAAAAAUAAAARAP//AAAAAAQAAAARAP7/AAAAAAMAAAAYAAEAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAcAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_860so")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -219,10 +220,10 @@ scale = Vector2(2, 2)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
-offset_left = -2410.0
-offset_top = -2840.0
-offset_right = 6237.0
-offset_bottom = 3957.0
+offset_left = -2449.0
+offset_top = -2860.0
+offset_right = 6198.0
+offset_bottom = 3937.0
 color = Color(0.384314, 1, 1, 1)
 
 [node name="coin3" parent="." instance=ExtResource("4_7g6nb")]
@@ -238,5 +239,9 @@ scale = Vector2(2, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bigger_area"]
 position = Vector2(340, 90)
 shape = SubResource("RectangleShape2D_860so")
+
+[node name="orc" parent="." instance=ExtResource("5_860so")]
+position = Vector2(909, 19)
+scale = Vector2(2, 2)
 
 [connection signal="area_entered" from="bigger_area" to="player" method="_on_bigger_area_area_entered"]

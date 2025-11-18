@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b6xoxl7rrx30o"]
 
 [ext_resource type="Script" uid="uid://cn612vmsn1c20" path="res://purple_slime_monster.gd" id="1_mlg68"]
-[ext_resource type="Texture2D" uid="uid://cepp10fbrcblv" path="res://assets/sprites/slime_purple_fixed.png" id="2_mlg68"]
+[ext_resource type="Texture2D" uid="uid://cepp10fbrcblv" path="res://assets/sprites/slime monster/slime_purple_fixed.png" id="2_mlg68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb72u"]
 size = Vector2(12, 12)

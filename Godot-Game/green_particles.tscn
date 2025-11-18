@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmbeqm2e8eyoy"]
+
+[sub_resource type="Gradient" id="Gradient_1e75h"]
+colors = PackedColorArray(0, 0.88235295, 0, 1, 0.014838596, 0.214786, 0.044008598, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Green_particles" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(2, 14)
+amount = 150
+lifetime = 2.86
+speed_scale = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(300, 100)
+gravity = Vector2(0, -200)
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+scale_amount_max = 4.0
+color_initial_ramp = SubResource("Gradient_1e75h")

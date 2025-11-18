@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var gravity = 980.0
 @onready var sprite = $AnimatedSprite2D
 
+#orc's health
+var health = 5
+
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
 
@@ -37,10 +40,10 @@ func _physics_process(delta):
 			#flip the orc's sprite based on its movement direction.
 			if velocity.x < 0:
 				#face left if moving left
-				sprite.flip_h = true
+				sprite.scale.x = -1
 			elif velocity.x > 0:
 				#face left if moving left
-				sprite.flip_h = false
+				sprite.scale.x = 1
 		else:
 			#if attacking or dead stop all horizontal movement
 			velocity.x = 0
@@ -64,3 +67,21 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		player_node = $"../player"
 		player_detected = false
+
+
+func _on_attack_area_area_entered(area: Area2D) -> void:
+		if area.is_in_group("Player"):
+			is_attacking = true
+			$AnimatedSprite2D.play("attack")
+
+func _on_death_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("fireball"):
+		health -= Globalvariables.fireball_damage
+		area.get_parent().queue_free()
+		#$AnimatedSprite2D.play("hurt")
+		if health <= 0:
+			is_dead = true
+			$AnimatedSprite2D.play("death")
+			await get_tree().create_timer(1).timeout
+			queue_free()
+			Globalvariables.score += 1

@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cq4mcw8xepqhp"]
+
+[ext_resource type="Script" uid="uid://y43amqv5063v" path="res://cyclops.gd" id="1_nvcme"]
+[ext_resource type="Texture2D" uid="uid://dyrxtam14oqdd" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/GreenOctopus/SpriteSheet.png" id="2_nvcme"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl1hc"]
+atlas = ExtResource("2_nvcme")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jplc"]
+atlas = ExtResource("2_nvcme")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opc8h"]
+atlas = ExtResource("2_nvcme")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts3v7"]
+atlas = ExtResource("2_nvcme")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl1hc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jplc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opc8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts3v7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvcme"]
+radius = 69.0
+
+[node name="enemy" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_nvcme")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="Detection_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+shape = SubResource("CircleShape2D_nvcme")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 1)
+
+[connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="Detection_Area" to="." method="_on_detection_area_area_exited"]

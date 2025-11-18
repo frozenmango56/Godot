@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bma470nepnn28"]
+[gd_scene load_steps=5 format=3 uid="uid://bma470nepnn28"]
 
 [ext_resource type="Script" uid="uid://dfggcx1joejqq" path="res://fireball.gd" id="1_sf4mh"]
-[ext_resource type="Texture2D" uid="uid://ch6wbvoc55kf1" path="res://assets/sprites/FB004.png" id="2_olwj8"]
+[ext_resource type="Texture2D" uid="uid://ch6wbvoc55kf1" path="res://assets/sprites/fireball/fireball.png" id="2_olwj8"]
+[ext_resource type="Script" uid="uid://1wuk2ukyn6ep" path="res://fireball_sprite.gd" id="3_wdani"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olwj8"]
 size = Vector2(18.75, 16.6667)
@@ -12,13 +13,15 @@ gravity_scale = 0.0
 script = ExtResource("1_sf4mh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-11, 0)
 texture = ExtResource("2_olwj8")
+script = ExtResource("3_wdani")
 
 [node name="fireball_ area" type="Area2D" parent="." groups=["fireball"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fireball_ area"]
-position = Vector2(1.04167, -1.66667)
+position = Vector2(1.04167, -1.66668)
 shape = SubResource("RectangleShape2D_olwj8")
 
 [connection signal="area_entered" from="fireball_ area" to="." method="_on_fireball_area_area_entered"]

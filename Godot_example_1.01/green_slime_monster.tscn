@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhq3i2k1byhqu"]
+
+[ext_resource type="Script" uid="uid://d16rj4snjop11" path="res://green_slime_monster.gd" id="1_eb72u"]
+[ext_resource type="Texture2D" uid="uid://hs6y4tg30ln6" path="res://assets/sprites/slime monster/slime_green_fixed.png" id="2_eb72u"]
+[ext_resource type="AudioStream" uid="uid://3j4y5x8fc2ck" path="res://assets/sounds/power_up.wav" id="3_mqcde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb72u"]
+size = Vector2(12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqcde"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haqnc"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwgb1"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqqbt"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01lj8"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_342xr"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27c4b"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c3wk"]
+atlas = ExtResource("2_eb72u")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pgens"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqcde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haqnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwgb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqqbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01lj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_342xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27c4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c3wk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqcde"]
+size = Vector2(14, 15)
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_eb72u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_eb72u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pgens")
+frame_progress = 0.631202
+
+[node name="Slime_area" type="Area2D" parent="." groups=["slime"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime_area"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mqcde")
+debug_color = Color(0.151868, 0.634294, 0.346308, 0.42)
+
+[node name="slime_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mqcde")
+max_distance = 100.0
+
+[connection signal="area_entered" from="Slime_area" to="." method="_on_slime_area_area_entered"]
+[connection signal="finished" from="slime_sound" to="." method="_on_slime_sound_finished"]

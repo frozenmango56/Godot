@@ -1,6 +1,7 @@
 #########
 extends RigidBody2D
 
+
 @export var speed: float = 500.0
 var direction: int = 1   # 1 = right, -1 = left
 
@@ -12,6 +13,7 @@ func _physics_process(delta: float) -> void:
 	# Flip sprite depending on velocity
 	if linear_velocity.x > 0:
 		$Sprite2D.flip_h = false
+		
 	elif linear_velocity.x < 0:
 		$Sprite2D.flip_h = true
 
