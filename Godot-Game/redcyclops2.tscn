@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgfe4hmlec7b8"]
+[gd_scene load_steps=27 format=3 uid="uid://bgfe4hmlec7b8"]
 
 [ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops2.gd" id="1_wtiie"]
 [ext_resource type="Texture2D" uid="uid://vpbu8xusqqq1" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png" id="2_h0cov"]
@@ -186,6 +186,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtiie"]
+radius = 65.123
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtiie"]
+size = Vector2(16, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(16, 14)
 
@@ -197,14 +203,21 @@ script = ExtResource("1_wtiie")
 sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"walk-down"
 
+[node name="Detection_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+shape = SubResource("CircleShape2D_wtiie")
+debug_color = Color(0.929352, 0.243733, 0.277931, 0.42)
+
+[node name="Hit_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wtiie")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_qi2p4")
 
-[node name="Detection_Area" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection_Area"]
-polygon = PackedVector2Array(0, 0, 80, 40, 80, -40)
-
 [connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
-[connection signal="area_exited" from="Detection_Area" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="Hit_Area" to="." method="_on_hit_area_area_entered"]

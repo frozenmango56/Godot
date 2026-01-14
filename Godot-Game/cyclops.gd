@@ -65,3 +65,7 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 		#player_node = $"../player"
 		#player_detected = false
 		pass
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("sword"):
+		queue_free()

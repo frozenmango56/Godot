@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmbeqm2e8eyoy"]
 
 [sub_resource type="Gradient" id="Gradient_1e75h"]
-colors = PackedColorArray(0, 0.88235295, 0, 1, 0.014838596, 0.214786, 0.044008598, 1)
+colors = PackedColorArray(0, 0.882353, 0, 1, 0.0148386, 0.214786, 0.0440086, 1)
 
 [node name="Node2D" type="Node2D"]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyt0hufv3vh0i"]
+
+[sub_resource type="Curve2D" id="Curve2D_opr0s"]
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_opr0s")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(217, 23)
+rotation = -3.03743
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]

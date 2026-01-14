@@ -151,6 +151,6 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kles1")
-animation = &"jump"
-frame = 4
-frame_progress = 0.479998
+animation = &"attack"
+frame = 1
+frame_progress = 0.698502

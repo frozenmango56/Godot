@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://duaoe3lp6fvex"]
+[gd_scene load_steps=10 format=3 uid="uid://duaoe3lp6fvex"]
 
 [ext_resource type="Script" uid="uid://y43amqv5063v" path="res://cyclops.gd" id="1_5bgip"]
 [ext_resource type="Texture2D" uid="uid://qn421ompf0v3" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope2/SpriteSheet.png" id="2_dycoj"]
@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(16, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dycoj"]
+size = Vector2(16, 15)
+
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_5bgip")
@@ -54,10 +57,17 @@ animation = &"walk"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qi2p4")
 
+[node name="Hit_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dycoj")
+
 [node name="Detection_Area" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection_Area"]
 polygon = PackedVector2Array(0, 0, 80, 40, 80, -40)
 
+[connection signal="area_entered" from="Hit_Area" to="." method="_on_hit_area_area_entered"]
 [connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="Detection_Area" to="." method="_on_detection_area_area_exited"]

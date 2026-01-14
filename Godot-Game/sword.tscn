@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://w6udbosg0wcl"]
+[gd_scene load_steps=4 format=3 uid="uid://w6udbosg0wcl"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_o8xsq"]
+[ext_resource type="Texture2D" uid="uid://cyfj3d0ou15ol" path="res://assests/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/Sprite.png" id="1_74bdg"]
+[ext_resource type="Script" uid="uid://deuvn7bngcey4" path="res://sword.gd" id="1_e4ynd"]
 
-[node name="sword" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74bdg"]
+size = Vector2(4, 6)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_o8xsq")
+[node name="sword" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_e4ynd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_74bdg")
+
+[node name="Area2D" type="Area2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_74bdg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://dloauxo7wpgyr"]
+[gd_scene load_steps=28 format=3 uid="uid://dloauxo7wpgyr"]
 
-[ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops2.gd" id="1_2uf3r"]
+[ext_resource type="Script" uid="uid://cpgdsni8xxb8j" path="res://larva2.gd" id="1_e3pcd"]
 [ext_resource type="Texture2D" uid="uid://vpbu8xusqqq1" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png" id="2_e3pcd"]
 [ext_resource type="Texture2D" uid="uid://de71ufwfc5lgt" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Larva/Larva.png" id="3_e3pcd"]
 
@@ -190,9 +190,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(16, 14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3pcd"]
+radius = 61.0328
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3pcd"]
+size = Vector2(16, 14)
+
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_2uf3r")
+script = ExtResource("1_e3pcd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3yqyl")
@@ -204,8 +210,15 @@ shape = SubResource("RectangleShape2D_qi2p4")
 
 [node name="Detection_Area" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection_Area"]
-polygon = PackedVector2Array(0, 0, 80, 40, 80, -40)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+shape = SubResource("CircleShape2D_e3pcd")
+
+[node name="Hit_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e3pcd")
 
 [connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="Detection_Area" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="Hit_Area" to="." method="_on_hit_area_area_entered"]
