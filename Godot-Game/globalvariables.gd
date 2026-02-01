@@ -9,5 +9,6 @@ var faceset = "Monsters/Eye"
 var playertype = greenninja
 var spawn_position = Vector2(3335,-148)
 var weapons_list = []
-var player_health = 10
+var player_health = 8
 var score = 0
+var hit = false

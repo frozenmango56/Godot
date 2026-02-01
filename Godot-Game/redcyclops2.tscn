@@ -197,6 +197,7 @@ size = Vector2(16, 14)
 
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
+wall_min_slide_angle = 0.884882
 script = ExtResource("1_wtiie")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

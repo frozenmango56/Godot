@@ -1,23 +1,22 @@
-[gd_scene load_steps=28 format=3 uid="uid://dloauxo7wpgyr"]
+[gd_scene load_steps=27 format=3 uid="uid://dloauxo7wpgyr"]
 
 [ext_resource type="Script" uid="uid://cpgdsni8xxb8j" path="res://larva2.gd" id="1_e3pcd"]
-[ext_resource type="Texture2D" uid="uid://vpbu8xusqqq1" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png" id="2_e3pcd"]
 [ext_resource type="Texture2D" uid="uid://de71ufwfc5lgt" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Larva/Larva.png" id="3_e3pcd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtiie"]
-atlas = ExtResource("2_e3pcd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uf3r"]
+atlas = ExtResource("3_e3pcd")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0cov"]
-atlas = ExtResource("2_e3pcd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pcd"]
+atlas = ExtResource("3_e3pcd")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5eco"]
-atlas = ExtResource("2_e3pcd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_relrt"]
+atlas = ExtResource("3_e3pcd")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o70oh"]
-atlas = ExtResource("2_e3pcd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q70c5"]
+atlas = ExtResource("3_e3pcd")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kolg3"]
@@ -88,7 +87,7 @@ region = Rect2(16, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wtiie")
+"texture": SubResource("AtlasTexture_2uf3r")
 }],
 "loop": true,
 "name": &"idle-down",
@@ -96,7 +95,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h0cov")
+"texture": SubResource("AtlasTexture_e3pcd")
 }],
 "loop": true,
 "name": &"idle-left",
@@ -104,7 +103,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e5eco")
+"texture": SubResource("AtlasTexture_relrt")
 }],
 "loop": true,
 "name": &"idle-right",
@@ -112,7 +111,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o70oh")
+"texture": SubResource("AtlasTexture_q70c5")
 }],
 "loop": true,
 "name": &"idle-up",
@@ -202,7 +201,7 @@ script = ExtResource("1_e3pcd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3yqyl")
-animation = &"walk-up"
+animation = &"idle-left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

@@ -7,7 +7,6 @@ var facing = "down"
 var direction = Vector2(0,0)
 var repetions_before_break = round(randf_range(3,5))
 var repetions = 0
-var rd = 0
 var stop = false
 	
 func random_direction():
@@ -18,28 +17,29 @@ func random_direction():
 			repetions = 0
 			repetions_before_break = round(randf_range(3,5))
 			direction = Vector2(0,0)
-			$AnimatedSprite2D.play("idle-down")
+			$AnimatedSprite2D.play("idle-" + facing)
 		elif random==1:
 			direction.y -= 1
 			$AnimatedSprite2D.play("walk-up")
+			facing = "up"
 		elif random == 2:
 			direction.y += 1
 			$AnimatedSprite2D.play("walk-down")
+			facing = "down"
 		elif random == 3:
 			direction.x -= 1
 			$AnimatedSprite2D.play("walk-left")
+			facing = "left"
 		elif random == 4:
 			direction.x += 1
 			$AnimatedSprite2D.play("walk-right")
+			facing = "right"
 	elif stop == true:
 		direction = Vector2(0,0)
 		$AnimatedSprite2D.play("idle-down")
 		$Timer.stop()
-		print("wha")
 
 func _on_timer_timeout() -> void:
-	rd += 1
-	print(rd)
 	direction = Vector2(0,0)
 	random_direction()
 
