@@ -67,7 +67,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("sword"):
 		#print("hit by sword")
 		health -= 1
-		if hit == 4:
+		if hit == 3:
 			queue_free()
 		elif health <= 0:
 			hit += 1

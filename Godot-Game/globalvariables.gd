@@ -12,3 +12,4 @@ var weapons_list = []
 var player_health = 8
 var score = 0
 var hit = false
+var hit_again = false

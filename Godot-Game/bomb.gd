@@ -24,7 +24,7 @@ func _on_timer_timeout() -> void:
 func explode() -> void:
 	#hide the sprite
 	$Icon.visible = false
-	# Start the particle explosion effect! ✨
+	# Start the particle explosion effect! 
 	explosion.emitting = true
 
 	# --- Optional: Add sound effects here ---

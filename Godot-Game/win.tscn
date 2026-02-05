@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b0oib5u6bagom"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 124.0
+offset_top = 190.0
+offset_right = 1062.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "YOU WIN!"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -1
+offset_right = 1374.0
+offset_bottom = 930.0
+color = Color(0.133333, 1, 0, 1)

@@ -12,14 +12,9 @@ var player_node: Node2D = null
 #A boolean to track if the player has entered the detection area
 var player_detected = false
 
-#a boolean to track if cyclops is not dead
+#a boolean to track if cyclops is dead
 var is_dead = false
 
-func _ready():
-	if self.scene_file_path == "res://bluecyclops2.tscn":
-		print(self.scene_file_path)
-		speed = 30.0
-#This function is called ever physics frame
 func _physics_process(delta):
 	#Only proceed with movement logic if not attacking
 	if not is_dead:

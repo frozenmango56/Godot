@@ -12,7 +12,10 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta):
 	$CanvasLayer/Label.text = "Score: " + str(globalvariables.score) +  "\nLives: " + str(globalvariables.player_health)
-	if globalvariables.player_health <= 0:
+
+	if globalvariables.score >= 100:
+		get_tree().call_deferred("change_scene_to_file", "res://win.tscn")
+	elif globalvariables.player_health <= 0:
 		death = true
 		globalvariables.spawn_position = Vector2(3335,-148)
 		$AnimatedSprite2D.play("dead")
@@ -21,7 +24,7 @@ func _physics_process(delta):
 		globalvariables.player_health = 8
 		globalvariables.score = 0
 		
-	if globalvariables.hit == false:
+	elif globalvariables.hit == false:
 		direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 		velocity = direction * speed
 		if velocity.x != 0 and velocity.y != 0:
@@ -61,13 +64,13 @@ func _physics_process(delta):
 		elif globalvariables.facing == "up":
 			$AnimatedSprite2D.play("idle-up")
 		move_and_slide()
-	elif death == true:
-		pass
 	elif globalvariables.hit == true:
+		print(velocity)
 		velocity = direction * 1600
 		move_and_slide()
 		await get_tree().create_timer(.025).timeout
 		globalvariables.hit = false
+		globalvariables.hit_again = false
 	
 	#if Input.is_action_just_pressed("jump") and is_on_floor():
 		#velocity.y = jump_speed
