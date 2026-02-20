@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://bk6b01jr7uyaa"]
+
+[ext_resource type="Texture2D" uid="uid://b1eicts31qdor" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Bamboo/SpriteSheet.png" id="1_jy4pt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmfib"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ber53"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa88i"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evl6u"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngfds"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqclr"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj31l"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dky5r"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wudth"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2c22"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13wp0"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tm4n"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtdmj"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyly7"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhnj"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emg45"]
+atlas = ExtResource("1_jy4pt")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddexo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmfib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ber53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa88i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evl6u")
+}],
+"loop": true,
+"name": &"walk- down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngfds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj31l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dky5r")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wudth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2c22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13wp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tm4n")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtdmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyly7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juhnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emg45")
+}],
+"loop": true,
+"name": &"walk-up",
+"speed": 5.0
+}]
+
+[node name="enemy" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ddexo")
+animation = &"walk- down"

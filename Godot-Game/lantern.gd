@@ -15,9 +15,8 @@ var player_detected = false
 #a boolean to track if cyclops is not _is
 var is_dead = false
 func _ready():
-	if self.scene_file_path == "res://bluecyclops2.tscn":
-		print(self.scene_file_path)
-		speed = 30.0
+	$AnimatedSprite2D2.visible = false
+
 #This function is called ever physics frame
 func _physics_process(delta):
 	#Only proceed with movement logic if not attacking
@@ -47,7 +46,10 @@ func _physics_process(delta):
 		move_and_slide()
 
 func explode():
-	$PointLight2D.energy = 1.0
+	#$PointLight2D.energy = 1.0
+	$AnimatedSprite2D2.visible = true
+	$AnimatedSprite2D.visible = false
+	$AnimatedSprite2D2.play("default")
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
@@ -61,7 +63,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 		health -= 1
 		if health <= 0:
 			explode()
-			await get_tree().create_timer(2).timeout
+			await get_tree().create_timer(1.4).timeout
 			queue_free()
 	if area.is_in_group("player"):
 		globalvariables.player_health -= 1

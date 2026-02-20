@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 50.0
 @onready var sprite = $AnimatedSprite2D
 var facing = "down"
+var direction = Vector2(0,0)
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
 
@@ -13,7 +14,7 @@ func _ready():
 	player_node = $"../player"
 
 func _physics_process(delta: float) -> void:
-	var direction = (player_node.global_position - global_position).normalized()
+	direction = (player_node.global_position - global_position).normalized()
 	#set velocity
 	if direction.x > abs(direction.y):
 		$AnimatedSprite2D.play("idle-right")

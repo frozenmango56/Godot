@@ -99,6 +99,7 @@ animations = [{
 radius = 6.08276
 
 [node name="coin" type="StaticBody2D"]
+texture_filter = 1
 script = ExtResource("1_ith32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

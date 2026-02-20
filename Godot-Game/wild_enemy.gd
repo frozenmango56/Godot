@@ -70,5 +70,5 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 		# Get the CharacterBody2D that owns this Area2D
 		var player := area.get_parent() as CharacterBody2D
 		if player:
-			var direction = (player.global_position - global_position).normalized()
+			direction = (player.global_position - global_position).normalized()
 			player.global_position += direction * 40  # 40 = knockback distance

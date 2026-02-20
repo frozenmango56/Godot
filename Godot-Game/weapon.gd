@@ -9,7 +9,7 @@ func _physics_process(delta):
 		rotation_degrees = 0
 		scale.x = 1
 		scale.y = 1
-		position = Vector2(-3,11)
+		position = Vector2(-5,11)
 		self.show()
 		$CollisionShape2D.disabled = false
 		for i in range(0,2):

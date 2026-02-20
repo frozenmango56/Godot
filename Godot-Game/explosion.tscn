@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmdnibt30da4c"]
+
+[ext_resource type="Texture2D" uid="uid://fhx8i8sifmyy" path="res://assests/Ninja Adventure - Asset Pack/FX/Elemental/Explosion/SpriteSheet.png" id="1_q7epf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxas0"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4sxf"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xho"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmxf7"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l04k4"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf70p"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xjsk"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjpps"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew515"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxas0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4sxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5xho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmxf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l04k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf70p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xjsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjpps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="explosion" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ew515")
+frame_progress = 0.220584

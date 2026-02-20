@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://bkjl3jge1ekc"]
+[gd_scene load_steps=11 format=4 uid="uid://bkjl3jge1ekc"]
 
 [ext_resource type="Texture2D" uid="uid://dvbfgg3lg2aqf" path="res://assets/sprites/world_tileset.png" id="1_4ygkp"]
 [ext_resource type="PackedScene" uid="uid://bato1ku5uxh75" path="res://player.tscn" id="2_ac3v3"]
 [ext_resource type="PackedScene" uid="uid://dhq3i2k1byhqu" path="res://green_slime_monster.tscn" id="3_ac3v3"]
 [ext_resource type="PackedScene" uid="uid://dal2jgmj3rekh" path="res://coin.tscn" id="4_7g6nb"]
 [ext_resource type="PackedScene" uid="uid://csakx4v7cnr8l" path="res://orc.tscn" id="5_860so"]
+[ext_resource type="PackedScene" uid="uid://g37o2ly731ye" path="res://jumpblock.tscn" id="6_1wdwu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7g6nb"]
 texture = ExtResource("1_4ygkp")
@@ -189,6 +190,7 @@ tile_set = SubResource("TileSet_860so")
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAARAAIAAAAAAAAAAAASAAIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_860so")
 
 [node name="borders" type="Area2D" parent="." groups=["Border"]]
@@ -243,5 +245,12 @@ shape = SubResource("RectangleShape2D_860so")
 [node name="orc" parent="." instance=ExtResource("5_860so")]
 position = Vector2(909, 19)
 scale = Vector2(2, 2)
+
+[node name="enemy3" parent="." instance=ExtResource("3_ac3v3")]
+position = Vector2(1120, 96)
+scale = Vector2(4, 4)
+
+[node name="jumpblock" parent="." instance=ExtResource("6_1wdwu")]
+position = Vector2(901, 70)
 
 [connection signal="area_entered" from="bigger_area" to="player" method="_on_bigger_area_area_entered"]

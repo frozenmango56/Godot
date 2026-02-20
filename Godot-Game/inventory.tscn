@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://dmubvys6e8hv7"]
+[gd_scene load_steps=3 format=3 uid="uid://dmubvys6e8hv7"]
 
-[node name="inventory" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://ckfn3dwerftqc" path="res://assests/Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundBag.png" id="1_pohso"]
+[ext_resource type="Texture2D" uid="uid://dteie3db2frs4" path="res://assests/Ninja Adventure - Asset Pack/Items/Food/Octopus.png" id="2_psafj"]
+
+[node name="inventory" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(21, 29)
+texture = ExtResource("1_pohso")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+zoom = Vector2(10, 10)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -568.0
+offset_top = -428.0
+offset_right = 652.0
+offset_bottom = 402.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 17)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_psafj")

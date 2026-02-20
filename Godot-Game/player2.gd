@@ -7,8 +7,8 @@ extends CharacterBody2D
 var death = false
 var punched = false
 
-func _enter_tree() -> void:
-	global_position = globalvariables.spawn_position
+#func _enter_tree() -> void:
+	#global_position = globalvariables.spawn_position
 	
 func _physics_process(delta):
 	$CanvasLayer/Label.text = "Score: " + str(globalvariables.score) +  "\nLives: " + str(globalvariables.player_health)
