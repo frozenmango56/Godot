@@ -1361,3 +1361,6 @@ position = Vector2(-81, -351)
 
 [node name="big zombie" parent="." instance=ExtResource("4_036b0")]
 position = Vector2(-62, -119)
+
+[node name="skeleton8" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(-84, -24)

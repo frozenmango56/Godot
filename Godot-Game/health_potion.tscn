@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://crpns1gj0gbky"]
+
+[ext_resource type="Texture2D" uid="uid://di5mu70di7bpp" path="res://assests/Ninja Adventure - Asset Pack/Items/Potion/LifePot.png" id="1_6yo2x"]
+[ext_resource type="Script" uid="uid://bocv8oy5f2gj2" path="res://health_potion.gd" id="1_sctm6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjq8p"]
+radius = 9.05539
+
+[node name="health_potion" type="StaticBody2D"]
+z_index = -1
+script = ExtResource("1_sctm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6yo2x")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xjq8p")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

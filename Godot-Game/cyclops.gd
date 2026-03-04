@@ -7,7 +7,6 @@ extends CharacterBody2D
 #Gravity applied to the character
 @export var gravity = 980.0
 @onready var sprite = $AnimatedSprite2D
-
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
 

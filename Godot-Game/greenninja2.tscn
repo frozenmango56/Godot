@@ -361,6 +361,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
+collision_layer = 3
 script = ExtResource("1_s26lc")
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
@@ -416,6 +417,7 @@ animation = &"full"
 offset_top = 60.0
 offset_right = 40.0
 offset_bottom = 83.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_glgmy")

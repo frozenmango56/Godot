@@ -47,6 +47,8 @@ func _physics_process(delta):
 
 func explode():
 	#$PointLight2D.energy = 1.0
+	is_dead = true
+	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D2.visible = true
 	$AnimatedSprite2D.visible = false
 	$AnimatedSprite2D2.play("default")

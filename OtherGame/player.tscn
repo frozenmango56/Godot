@@ -421,7 +421,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(14.5, 18)
+size = Vector2(15, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(16, 9)
@@ -432,12 +432,10 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ibah8")
-animation = &"down slice"
-frame = 1
-frame_progress = 0.549612
+animation = &"idle down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, -2)
+position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]

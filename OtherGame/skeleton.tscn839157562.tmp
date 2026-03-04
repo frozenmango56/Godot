@@ -322,7 +322,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plk42"]
-radius = 42.0119
+radius = 34.0147
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plk42"]
 size = Vector2(14, 18)
@@ -330,7 +330,7 @@ size = Vector2(14, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6xse"]
 size = Vector2(16, 20)
 
-[node name="skeleton" type="CharacterBody2D"]
+[node name="skeleton" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_plk42")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -356,3 +356,4 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_r6xse")
 
 [connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

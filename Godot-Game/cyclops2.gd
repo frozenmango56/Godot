@@ -3,6 +3,8 @@ extends CharacterBody2D
 #Export a variable to make the movement speed adjustable in the inspector
 var speed = 20.0
 @onready var sprite = $AnimatedSprite2D
+@onready var potion = preload("res://health_potion.tscn")
+@onready var coin = preload("res://coin.tscn")
 var health = 3
 var facing = "down"
 var direction = 0
@@ -54,6 +56,17 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 		health -= 1
 		if health <= 0:
 			queue_free()
+			var random = round(randf_range(1,4))
+			if random == 1:
+				var new_object = potion.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			elif random == 2:
+				var new_object = coin.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			else:
+				pass
 	if area.is_in_group("player"):
 		globalvariables.player_health -= 1
 		globalvariables.hit = true

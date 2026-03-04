@@ -20,9 +20,7 @@ func _physics_process(delta):
 		globalvariables.spawn_position = Vector2(3335,-148)
 		$AnimatedSprite2D.play("dead")
 		await get_tree().create_timer(.5).timeout
-		get_tree().call_deferred("change_scene_to_file", "res://world2.tscn")
-		globalvariables.player_health = 8
-		globalvariables.score = 0
+		get_tree().call_deferred("change_scene_to_file", "res://lose.tscn")
 		
 	elif globalvariables.hit == false:
 		direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
@@ -66,7 +64,8 @@ func _physics_process(delta):
 		move_and_slide()
 	elif globalvariables.hit == true:
 		print(velocity)
-		velocity = direction * 1600
+		velocity = direction * Vector2(1600, 1600)
+		
 		move_and_slide()
 		await get_tree().create_timer(.025).timeout
 		globalvariables.hit = false
