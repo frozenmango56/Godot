@@ -8,6 +8,7 @@ var direction = Vector2(0,0)
 var repetions_before_break = round(randf_range(3,5))
 var repetions = 0
 var stop = false
+var player_node: Node2D = null
 	
 func random_direction():
 	if stop == false:
@@ -49,6 +50,7 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 		
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
+		player_node = $"../player"
 		stop = false
 		$Timer.start()
 		random_direction()
@@ -66,3 +68,5 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 			queue_free()
 	if area.is_in_group("player"):
 		globalvariables.player_health -= 1
+		globalvariables.hit = true
+		player_node.direction = direction

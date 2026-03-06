@@ -63,7 +63,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("idle-up")
 		move_and_slide()
 	elif globalvariables.hit == true:
-		print(velocity)
+		#print(velocity)
 		velocity = direction * Vector2(1600, 1600)
 		
 		move_and_slide()

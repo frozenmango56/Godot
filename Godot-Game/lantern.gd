@@ -8,7 +8,7 @@ var facing = "down"
 var direction = 0
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
-
+var blast_range = false
 #A boolean to track if the player has entered the detection area
 var player_detected = false
 
@@ -57,6 +57,11 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		player_node = $"../player"
 		player_detected = true
+		blast_range = true
+
+func _on_detection_area_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		blast_range = false
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	#print("in hit area:", area.name, area.get_groups())
@@ -67,6 +72,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 			explode()
 			await get_tree().create_timer(1.4).timeout
 			queue_free()
+			if blast_range == true:
+				globalvariables.player_health -= 2
 	if area.is_in_group("player"):
 		globalvariables.player_health -= 1
 		globalvariables.hit = true

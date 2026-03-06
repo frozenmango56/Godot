@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bocv8oy5f2gj2" path="res://health_potion.gd" id="1_sctm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjq8p"]
-radius = 9.05539
+radius = 7.07107
 
 [node name="health_potion" type="StaticBody2D"]
 z_index = -1
