@@ -5,3 +5,4 @@ func _on_pressed() -> void:
 	globalvariables.facing = "down"
 	globalvariables.player_health = 8
 	globalvariables.score = 0
+	globalvariables.monsters_defeated = 0

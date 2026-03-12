@@ -1,17 +1,20 @@
 extends StaticBody2D
-#@onready var box_scene = preload("res://octopus.tscn")
-#@onready var spawn_marker = $Marker2D
-#
+
 #func _ready():
-	#spawn_boxes(10)
-	#
-	##A for loop inside a function to randomly spwn 9 things on the 
-#func spawn_boxes(count: int):
-	#for i in range(count):
-		##instantiate
-		#var box_instance = box_scene.instantiate()
-		##wait 1 second between ixstantiating.
-		#await get_tree().create_timer(.5).timeout
-		##add the instantied item to the game tree at marker 2d
-		#spawn_marker.add_child(box_instance)
-		#
+#@onready var newlarva = preload("res://larva2.tscn")
+#var player_instance = newlarva.instantiate()
+##@onready var greenninja = preload("res://greenninja2.tscn")
+##@onready var blackninja = preload("res://blackninja.tscn")
+##@onready var purpleninja = preload("res://purpleninja2.tscn")
+##@onready var spawn_marker = $"."
+##
+#func _ready():
+	#self.add_child(player_instance)
+	##instantiate
+	#var player = greenninja.instantiate()
+	##add the instantied item to the game tree at marker 2d
+	#spawn_marker.add_child(player)
+	## Remove the node from the old parent
+	#$".".remove_child(player)
+	## Add the node to the new parent
+	#$"..".call_deferred("add_child", player)

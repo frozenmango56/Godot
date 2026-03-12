@@ -69,6 +69,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 		health -= 1
 		if hit == 3:
 			queue_free()
+			globalvariables.monsters_defeated += 1
 		elif health <= 0:
 			hit += 1
 			health = 1

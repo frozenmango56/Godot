@@ -72,6 +72,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 			explode()
 			await get_tree().create_timer(1.4).timeout
 			queue_free()
+			globalvariables.monsters_defeated += 1
 			if blast_range == true:
 				globalvariables.player_health -= 2
 	if area.is_in_group("player"):

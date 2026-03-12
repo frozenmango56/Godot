@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cctxwmmnbkrtj"]
 
-[ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops2.gd" id="1_a8y4e"]
+[ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops.gd" id="1_a8y4e"]
 [ext_resource type="Texture2D" uid="uid://m24xproj0fm5" path="res://assests/Ninja Adventure - Asset Pack/cyclops_invisible.png" id="2_a8y4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsxm4"]

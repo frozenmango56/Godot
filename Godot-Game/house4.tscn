@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://d0blcv7tddldu"]
 
-[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja2.tscn" id="1_gq8lx"]
+[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_gq8lx"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_k8hio"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_paors"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_kcq22"]
