@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_y3gkq"]
 [ext_resource type="PackedScene" uid="uid://bgfe4hmlec7b8" path="res://redcyclops.tscn" id="5_o5obl"]
 [ext_resource type="PackedScene" uid="uid://sam7h8jf53m4" path="res://coin.tscn" id="6_psure"]
-[ext_resource type="PackedScene" uid="uid://dloauxo7wpgyr" path="res://larva.tscn" id="7_y3gkq"]
+[ext_resource type="PackedScene" uid="uid://dloauxo7wpgyr" path="res://greenlarva.tscn" id="7_y3gkq"]
 [ext_resource type="PackedScene" uid="uid://udxafmth0vio" path="res://wild_enemy.tscn" id="8_636pb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6kfo"]

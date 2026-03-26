@@ -90,7 +90,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		$CanvasLayer/Label.text = "SCORE: " + str(globalvariables.score)
 		$CanvasLayer/Label.text = "LIVES: " + str(globalvariables.player_health)
 
-#func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("enter_house_2"):
-		#globalvariables.spawn_position = Vector2(0,0)
-		#get_tree().call_deferred("change_scene_to_file", "res://house2.tscn")
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enter_house_2"):
+		globalvariables.spawn_position = Vector2(0,0)
+		get_tree().call_deferred("change_scene_to_file", "res://house2.tscn")

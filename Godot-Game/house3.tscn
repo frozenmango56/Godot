@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_0levq"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_gurb0"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_ivdn2"]
-[ext_resource type="PackedScene" uid="uid://dloauxo7wpgyr" path="res://larva.tscn" id="5_0levq"]
+[ext_resource type="PackedScene" uid="uid://dloauxo7wpgyr" path="res://greenlarva.tscn" id="5_0levq"]
 [ext_resource type="PackedScene" uid="uid://5nw3gjiiqsdi" path="res://boss2.tscn" id="6_gurb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6kfo"]

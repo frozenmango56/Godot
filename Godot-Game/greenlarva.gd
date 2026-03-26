@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var enemy_scene = preload("res://larva.tscn")
+@onready var enemy_scene = preload("res://greenlarva.tscn")
 
 #Export a variable to make the movement speed adjustable in the inspector
 @export var speed = 20.0

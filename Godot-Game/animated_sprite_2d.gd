@@ -1,3 +1,3 @@
 extends AnimatedSprite2D
 
-var color = "blue"
+var color = " k   ,o"
