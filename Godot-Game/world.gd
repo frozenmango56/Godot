@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+	
 #func _ready():
 #@onready var newlarva = preload("res://larva2.tscn")
 #var player_instance = newlarva.instantiate()

@@ -78,6 +78,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 				# Set the new enemy's position near the current one
 				new_enemy.global_position = global_position + Vector2(-30, 0)
 				new_enemy.hit = self.hit
+				new_enemy.player_node = self.player_node
+				new_enemy.player_detected = self.player_detected
 				# Add it to the parent (World) so it's a sibling, not a child
 				get_parent().add_child(new_enemy)
 			elif globalvariables.facing == "down":
@@ -87,6 +89,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 				# Set the new enemy's position near the current one
 				new_enemy.global_position = global_position + Vector2(-30, 0)
 				new_enemy.hit = self.hit
+				new_enemy.player_node = self.player_node
+				new_enemy.player_detected = self.player_detected
 				# Add it to the parent (World) so it's a sibling, not a child
 				get_parent().add_child(new_enemy)
 			elif globalvariables.facing == "right":
@@ -96,6 +100,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 				# Set the new enemy's position near the current one
 				new_enemy.global_position = global_position + Vector2(0, -30)
 				new_enemy.hit = self.hit
+				new_enemy.player_node = self.player_node
+				new_enemy.player_detected = self.player_detected
 				# Add it to the parent (World) so it's a sibling, not a child
 				get_parent().add_child(new_enemy)
 			elif globalvariables.facing == "left":
@@ -105,6 +111,8 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 				# Set the new enemy's position near the current one
 				new_enemy.global_position = global_position + Vector2(0, -30)
 				new_enemy.hit = self.hit
+				new_enemy.player_node = self.player_node
+				new_enemy.player_detected = self.player_detected
 				# Add it to the parent (World) so it's a sibling, not a child
 				get_parent().add_child(new_enemy)
 				

@@ -9,6 +9,7 @@ extends CharacterBody2D
 var health = 1
 var hit = 0
 var facing = "down"
+var direction = 0
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
 
@@ -28,7 +29,7 @@ func _physics_process(delta):
 		#Only move horizontally if the player has been detected.
 		if player_detected and is_instance_valid(player_node):
 			#caculate the direction from the cyclops to the player and normalize it.
-			var direction = (player_node.global_position - global_position).normalized()
+			direction = (player_node.global_position - global_position).normalized()
 			#set velocity
 			velocity = direction * speed
 			if velocity.x > 0 and direction.x > abs(direction.y):
@@ -111,11 +112,6 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 				get_parent().add_child(new_enemy)
 				
 	if area.is_in_group("player"):
-		#print("hit player")
 		globalvariables.player_health -= 1
-		#print(globalvariables.player_health)
-		# Get the CharacterBody2D that owns this Area2D
-		var player := area.get_parent() as CharacterBody2D
-		if player:
-			var direction = (player.global_position - global_position).normalized()
-			player.global_position += direction * 40  # 40 = knockback distance
+		globalvariables.hit = true
+		player_node.direction = direction

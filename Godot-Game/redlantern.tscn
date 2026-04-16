@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dvhr38cc64868"]
+[gd_scene load_steps=38 format=3 uid="uid://dvhr38cc64868"]
 
 [ext_resource type="Script" uid="uid://bbrja73pxu4ge" path="res://lantern.gd" id="1_b8mxq"]
 [ext_resource type="Texture2D" uid="uid://bhrwbpb6jc6r5" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/LanternRed/SpriteSheet.png" id="2_3p76c"]
@@ -255,11 +255,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(15, 15)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_awg7j"]
-radius = 103.947
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtiie"]
-radius = 65.123
+radius = 67.0075
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtiie"]
 size = Vector2(15, 15)
@@ -286,11 +283,6 @@ sprite_frames = SubResource("SpriteFrames_sh24l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_qi2p4")
-
-[node name="Explosion Area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion Area"]
-shape = SubResource("CircleShape2D_awg7j")
 
 [node name="Detection_Area" type="Area2D" parent="."]
 

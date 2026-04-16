@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta):
 	#Only proceed with movement logic if not attacking
 	if not is_dead:
-		#Only move horizontally if the player has been detected.
+		#Only move if the player has been detected.
 		if player_detected and is_instance_valid(player_node):
 			#caculate the direction from the cyclops to the player and normalize it.
 			direction = (player_node.global_position - global_position).normalized()

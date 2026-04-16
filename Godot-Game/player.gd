@@ -7,8 +7,8 @@ extends CharacterBody2D
 var death = false
 var punched = false
 
-#func _enter_tree() -> void:
-	#global_position = globalvariables.spawn_position
+func _enter_tree() -> void:
+	global_position = globalvariables.spawn_position
 	
 func _physics_process(delta):
 	$CanvasLayer/Label.text = "Score: " + str(globalvariables.score) +  "\nLives: " + str(globalvariables.player_health)
@@ -75,22 +75,86 @@ func _physics_process(delta):
 		#velocity.y = jump_speed
 		#await get_tree().create_timer(3).timeout
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enter_house_1"):
-		globalvariables.spawn_position = Vector2(0,0)
-		get_tree().call_deferred("change_scene_to_file", "res://house1.tscn")
-	elif area.is_in_group("exit_house_1"): 
-		globalvariables.spawn_position = Vector2(3335,-148)
-		get_tree().call_deferred("change_scene_to_file", "res://world2.tscn")
-	#elif area.is_in_group("exit_house_2"):
-		#globalvariables.spawn_position = Vector2(135,-380)
-		#get_tree().call_deferred("change_scene_to_file", "res://world2.tscn")
-	elif area.is_in_group("coin"):
+func _on_fresh_water_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_fresh_water_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_detection_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin"):
 		globalvariables.score += 1
 		$CanvasLayer/Label.text = "SCORE: " + str(globalvariables.score)
 		$CanvasLayer/Label.text = "LIVES: " + str(globalvariables.player_health)
-
-func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enter_house_2"):
+	else:
+		pass
+		
+#########################################################################
+#house 1 doors
+func _on_house_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
 		globalvariables.spawn_position = Vector2(0,0)
-		get_tree().call_deferred("change_scene_to_file", "res://house2.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://house1.tscn")
+		
+func _on_exit_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"): 
+		globalvariables.spawn_position = Vector2(3335,-148)
+		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
+		
+##########################################################################
+#house2 room1 doors
+func _on_house_2r_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(0,0)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r1.tscn")
+
+func _on_exit_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(135,-370)
+		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
+
+func _on_right_door_r_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-115,-80)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r2.tscn")
+		
+func _on_left_door_r_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(85,-80)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r4.tscn")
+		
+func _on_top_door_r_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-15,20)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r5.tscn")
+##########################################################################
+#house2 room2 doors
+func _on_left_door_r_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(100,-45)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r1.tscn")
+
+func _on_right_door_r_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-115,-80)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r3.tscn")
+############################################################################
+#house2 room3 doors
+func _on_left_door_r_3_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(85,-80)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r2.tscn")
+############################################################################
+#house2 room4 doors
+func _on_right_door_r_4_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-116,-45)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r1.tscn")
+###########################################################################
+#house2 room5 doors
+func _on_bottom_door_r_5_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-15,-102)
+		get_tree().call_deferred("change_scene_to_file", "res://house2r1.tscn")

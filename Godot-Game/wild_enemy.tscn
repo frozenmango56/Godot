@@ -204,6 +204,7 @@ sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"idle-down"
 
 [node name="Detection_Area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 shape = SubResource("CircleShape2D_2a0ih")

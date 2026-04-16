@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://b74llyd5iwd7j"]
+[gd_scene load_steps=17 format=4 uid="uid://b74llyd5iwd7j"]
 
 [ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_4godp"]
+[ext_resource type="Script" uid="uid://d6h1u64166ta" path="res://house_1.gd" id="1_oxvm4"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_o5obl"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_psure"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_y3gkq"]
@@ -762,6 +763,7 @@ sources/0 = SubResource("TileSetAtlasSource_8xm3c")
 size = Vector2(18, 1)
 
 [node name="house1" type="StaticBody2D"]
+script = ExtResource("1_oxvm4")
 
 [node name="player" parent="." instance=ExtResource("1_4godp")]
 position = Vector2(-8, -8)
@@ -787,9 +789,9 @@ z_index = -1
 texture_filter = 1
 tile_set = SubResource("TileSet_tem3n")
 
-[node name="Area2D" type="Area2D" parent="." groups=["exit_house_1"]]
+[node name="Exit1" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit1"]
 position = Vector2(-8, 10.5)
 shape = SubResource("RectangleShape2D_68721")
 
@@ -868,6 +870,6 @@ position = Vector2(449, -434)
 [node name="coin13" parent="." instance=ExtResource("6_psure")]
 position = Vector2(446, -271)
 
-[connection signal="area_entered" from="Area2D" to="player" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Exit1" to="player" method="_on_exit_1_area_entered"]
 
 [editable path="player"]

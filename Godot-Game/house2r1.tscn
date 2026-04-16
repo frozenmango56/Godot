@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://uttaidu2plbk"]
+[gd_scene load_steps=15 format=4 uid="uid://uttaidu2plbk"]
 
-[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_8on7d"]
-[ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_24gn5"]
-[ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_t743v"]
-[ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_f7d60"]
+[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_5puq2"]
+[ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_3x3d0"]
+[ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_nlseb"]
+[ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_s6358"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6kfo"]
-texture = ExtResource("2_24gn5")
+texture = ExtResource("2_3x3d0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -306,7 +306,7 @@ texture = ExtResource("2_24gn5")
 sources/1 = SubResource("TileSetAtlasSource_l6kfo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kn2ne"]
-texture = ExtResource("3_t743v")
+texture = ExtResource("3_nlseb")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -483,11 +483,12 @@ texture = ExtResource("3_t743v")
 9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_o4k3h"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_kn2ne")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xm3c"]
-texture = ExtResource("4_f7d60")
+texture = ExtResource("4_s6358")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -755,15 +756,22 @@ texture = ExtResource("4_f7d60")
 sources/0 = SubResource("TileSetAtlasSource_8xm3c")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68721"]
-size = Vector2(18, 1)
+size = Vector2(16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puq2"]
+size = Vector2(1, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x3d0"]
+size = Vector2(32, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlseb"]
+size = Vector2(1, 32)
 
 [node name="house1" type="StaticBody2D"]
+collision_layer = 3
 
-[node name="player" parent="." instance=ExtResource("1_8on7d")]
+[node name="player" parent="." instance=ExtResource("1_5puq2")]
 position = Vector2(-8, -8)
-
-[node name="weapon" parent="player/Sword" index="1"]
-z_index = 0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -783,12 +791,31 @@ z_index = -1
 texture_filter = 1
 tile_set = SubResource("TileSet_tem3n")
 
-[node name="Area2D" type="Area2D" parent="." groups=["exit_house_1"]]
+[node name="Exit2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-8, 10.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit2"]
+position = Vector2(-8, 11.5)
 shape = SubResource("RectangleShape2D_68721")
 
-[connection signal="area_entered" from="Area2D" to="player" method="_on_area_2d_area_entered"]
+[node name="RightDoor_r1" type="Area2D" parent="."]
 
-[editable path="player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor_r1"]
+position = Vector2(111.5, -48)
+shape = SubResource("RectangleShape2D_5puq2")
+
+[node name="TopDoor_r1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDoor_r1"]
+position = Vector2(-16, -111.5)
+shape = SubResource("RectangleShape2D_3x3d0")
+
+[node name="LeftDoor_r1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor_r1"]
+position = Vector2(-127.5, -48)
+shape = SubResource("RectangleShape2D_nlseb")
+
+[connection signal="area_entered" from="Exit2" to="player" method="_on_exit_2_area_entered"]
+[connection signal="area_entered" from="RightDoor_r1" to="player" method="_on_right_door_r_1_area_entered"]
+[connection signal="area_entered" from="TopDoor_r1" to="player" method="_on_top_door_r_1_area_entered"]
+[connection signal="area_entered" from="LeftDoor_r1" to="player" method="_on_left_door_r_1_area_entered"]

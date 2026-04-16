@@ -8,8 +8,7 @@ extends Area2D
 @onready var fuse_timer: Timer = $Timer
 # reference the cpuparticles2d explosion
 @onready var explosion = $explosion
-
-
+ 
 func _ready() -> void:
 	# When the bomb is placed in the world, start the fuse.
 	fuse_timer.start()
