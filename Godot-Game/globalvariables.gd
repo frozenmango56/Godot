@@ -1,18 +1,15 @@
 extends Node2D
 
-@onready var greenninja = preload("res://greenninja.tscn")
-#@onready var blackninja = preload("res://blackninja.tscn")
-@onready var purpleninja = preload("res://purpleninja.tscn")
-
 var facing = "down"
 var faceset = "Monsters/Eye"
-var playertype = greenninja
+var playerskin = "Green"
 var spawn_position = Vector2(3335,-148)
 var weapons_list = []
-var player_health = 8
-var max_player_health = 8
-var score = 0
-var hit = false
-var hit_again = true
+var player_health = 0
+var max_player_health = 0
+var coins_collected = 0
 var monsters_defeated = 0
 var sand_defeated = 0
+var sword_damage = 1
+var game_difficulty = "none"
+var hit = false

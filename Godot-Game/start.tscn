@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdi472ot6x3qh"]
+
+[ext_resource type="Script" uid="uid://dm32vtbpb4o2x" path="res://easy_startbutton.gd" id="1_ots34"]
+[ext_resource type="Script" uid="uid://cu1o0r02smqxt" path="res://start.gd" id="1_qn1rc"]
+[ext_resource type="Script" uid="uid://cvqy385r8ii7x" path="res://normal_startbutton_2.gd" id="3_1n0d2"]
+[ext_resource type="Script" uid="uid://c3jbmru8aojck" path="res://hard_startbutton.gd" id="4_y5hus"]
+
+[node name="Node2D" type="StaticBody2D"]
+script = ExtResource("1_qn1rc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 353.0
+offset_top = 258.0
+offset_right = 766.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+text = "Instructions"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 263.0
+offset_top = 370.0
+offset_right = 857.0
+offset_bottom = 447.0
+theme_override_font_sizes/font_size = 26
+text = "Press F to use sword. Use arrow keys to move. 
+Collect a hundred gold coins to win the game."
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 124.0
+offset_right = 1038.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0, 0.780392, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "Ninja Attack"
+
+[node name="Startbutton" type="Button" parent="."]
+modulate = Color(0, 1, 1, 1)
+offset_left = 111.0
+offset_top = 495.0
+offset_right = 359.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 28
+text = "Easy"
+script = ExtResource("1_ots34")
+
+[node name="Startbutton2" type="Button" parent="."]
+modulate = Color(0, 1, 1, 1)
+offset_left = 423.0
+offset_top = 495.0
+offset_right = 671.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 28
+text = "Normal
+"
+script = ExtResource("3_1n0d2")
+
+[node name="Startbutton3" type="Button" parent="."]
+modulate = Color(0, 1, 1, 1)
+offset_left = 745.0
+offset_top = 495.0
+offset_right = 993.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 28
+text = "Hard"
+script = ExtResource("4_y5hus")
+
+[connection signal="pressed" from="Startbutton" to="Startbutton" method="_on_pressed"]
+[connection signal="pressed" from="Startbutton2" to="Startbutton2" method="_on_pressed"]
+[connection signal="pressed" from="Startbutton3" to="Startbutton3" method="_on_pressed"]

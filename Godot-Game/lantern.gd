@@ -3,6 +3,8 @@ extends CharacterBody2D
 #Export a variable to make the movement speed adjustable in the inspector
 var speed = 20.0
 @onready var sprite = $AnimatedSprite2D
+@onready var potion = preload("res://health_potion.tscn")
+@onready var coin = preload("res://coin.tscn")
 var health = 3
 var facing = "down"
 var direction = 0
@@ -11,9 +13,9 @@ var player_node: Node2D = null
 var blast_range = false
 #A boolean to track if the player has entered the detection area
 var player_detected = false
-
-#a boolean to track if cyclops is not _is
+#a boolean to track if cyclops is not dead
 var is_dead = false
+
 func _ready():
 	$AnimatedSprite2D2.visible = false
 
@@ -51,6 +53,7 @@ func explode():
 	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D2.visible = true
 	$AnimatedSprite2D.visible = false
+	$AudioStreamPlayer2D.play()
 	$AnimatedSprite2D2.play("default")
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
@@ -67,11 +70,22 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	#print("in hit area:", area.name, area.get_groups())
 	if area.is_in_group("sword"):
 		#print("hit by sword")
-		health -= 1
+		health -= globalvariables.sword_damage
 		if health <= 0:
 			explode()
 			await get_tree().create_timer(1.4).timeout
 			queue_free()
+			var random = round(randf_range(1,3))
+			if random == 1:
+				var new_object = potion.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			elif random == 2:
+				var new_object = coin.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			else:
+				pass
 			globalvariables.monsters_defeated += 1
 			if blast_range == true:
 				globalvariables.player_health -= 2

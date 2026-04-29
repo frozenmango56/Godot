@@ -1,5 +1,4 @@
 extends CharacterBody2D
-	
 @export var projectile = preload("res://ninjastar.tscn")
 @export var speed = 50.0
 @onready var sprite = $AnimatedSprite2D

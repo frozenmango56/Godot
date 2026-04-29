@@ -149,6 +149,7 @@ animations = [{
 }]
 
 [node name="Boss" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_5wlqp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

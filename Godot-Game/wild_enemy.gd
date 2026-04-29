@@ -9,6 +9,8 @@ var repetions_before_break = round(randf_range(3,5))
 var repetions = 0
 var stop = false
 var player_node: Node2D = null
+@onready var potion = preload("res://health_potion.tscn")
+@onready var coin = preload("res://coin.tscn")
 	
 func random_direction():
 	if stop == false:
@@ -63,10 +65,21 @@ func _physics_process(delta):
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	#print("in hit area:", area.name, area.get_groups())
 	if area.is_in_group("sword"):
-		health -= 1
+		health -= globalvariables.sword_damage
 		if health <= 0:
 			queue_free()
 			globalvariables.monsters_defeated += 1
+			var random = round(randf_range(1,2))
+			if random == 1:
+				var new_object = potion.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			elif random == 2:
+				var new_object = coin.instantiate()
+				get_parent().add_child(new_object)
+				new_object.global_position = $Marker2D.global_position
+			else:
+				pass
 	if area.is_in_group("player"):
 		globalvariables.player_health -= 1
 		globalvariables.hit = true

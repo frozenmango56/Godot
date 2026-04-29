@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://digfb5htftuhi"]
+[gd_scene load_steps=14 format=4 uid="uid://digfb5htftuhi"]
 
-[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_hyrpc"]
+[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://player.tscn" id="1_hyrpc"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_vhlni"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_w3f3s"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_1chor"]
+[ext_resource type="PackedScene" uid="uid://5wu080wbkyqm" path="res://invisiblecyclops.tscn" id="5_vhlni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6kfo"]
 texture = ExtResource("2_vhlni")
@@ -769,7 +770,7 @@ collision_mask = 0
 position = Vector2(84, -81)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
+z_index = -2
 texture_filter = 1
 position = Vector2(0, -80)
 tile_map_data = PackedByteArray("AAAEAAQAAQASAAgAAAAEAAMAAQASAAcAAAAEAAIAAQASAAYAAAAEAAEAAQASAAkAAAAEAAAAAQASAAgAAAAEAP//AQASAAcAAAADAP//AQARAAcAAAACAP//AQAQAAcAAAABAP//AQAPAAcAAAAAAP//AQASAAcAAAD8////AQASAAcAAAD7////AQARAAcAAAD6////AQAQAAcAAAD5////AQAPAAcAAAD5/wAAAQAPAAgAAAD6/wAAAQAQAAgAAAD9/wAAAQAPAAgAAAD+/wAAAQAQAAgAAAD//wAAAQARAAgAAAAAAAAAAQASAAgAAAABAAAAAQAPAAgAAAACAAAAAQAQAAgAAAADAAAAAQARAAgAAAADAAEAAQARAAkAAAACAAEAAQAQAAkAAAABAAEAAQAPAAkAAAAAAAEAAQASAAkAAAD//wEAAQARAAkAAAD+/wEAAQAQAAkAAAD9/wEAAQAPAAkAAAD8/wEAAQASAAkAAAD7/wEAAQARAAkAAAD5/wIAAQAPAAYAAAD6/wIAAQAQAAYAAAD7/wIAAQARAAYAAAD8/wIAAQASAAYAAAD9/wIAAQAPAAYAAAD+/wIAAQAQAAYAAAD//wIAAQARAAYAAAAAAAIAAQASAAYAAAABAAIAAQAPAAYAAAACAAIAAQAQAAYAAAADAAIAAQARAAYAAAADAAMAAQARAAcAAAACAAMAAQAQAAcAAAABAAMAAQAPAAcAAAAAAAMAAQASAAcAAAD//wMAAQARAAcAAAD+/wMAAQAQAAcAAAD9/wMAAQAPAAcAAAD8/wMAAQASAAcAAAD7/wMAAQARAAcAAAD6/wMAAQAQAAcAAAD5/wMAAQAPAAcAAAD5/wQAAQAPAAgAAAD6/wQAAQAQAAgAAAD7/wQAAQARAAgAAAD8/wQAAQASAAgAAAD9/wQAAQAPAAgAAAADAAQAAQARAAgAAAACAAQAAQAQAAgAAAABAAQAAQAPAAgAAAAAAAQAAQASAAgAAAD//wQAAQARAAgAAAD+/wQAAQAQAAgAAAD///7/AQARAAYAAAD+//7/AQAQAAYAAAD//wUAAQARAAkAAAACAPr/AQAQAAYAAAACAPv/AQAQAAcAAAACAPz/AQAQAAgAAAACAP3/AQAQAAkAAAADAPr/AQARAAYAAAADAPv/AQARAAcAAAADAPz/AQARAAgAAAADAP3/AQARAAkAAAAEAPr/AQASAAYAAAAEAPv/AQASAAcAAAAEAPz/AQASAAgAAAAEAP3/AQASAAkAAAD+//r/AQAQAAYAAAD+//v/AQAQAAcAAAD+//z/AQAQAAgAAAD+//3/AQAQAAkAAAD///r/AQARAAYAAAD///v/AQARAAcAAAD///z/AQARAAgAAAD///3/AQARAAkAAAAAAPr/AQASAAYAAAAAAPv/AQASAAcAAAAAAPz/AQASAAgAAAAAAP3/AQASAAkAAAABAPr/AQAPAAYAAAABAPv/AQAPAAcAAAABAPz/AQAPAAgAAAABAP3/AQAPAAkAAAD6//r/AQAQAAYAAAD6//v/AQAQAAcAAAD6//z/AQAQAAgAAAD6//3/AQAQAAkAAAD7//r/AQARAAYAAAD7//v/AQARAAcAAAD7//z/AQARAAgAAAD7//3/AQARAAkAAAD8//r/AQASAAYAAAD8//v/AQASAAcAAAD8//z/AQASAAgAAAD8//3/AQASAAkAAAD9//r/AQAPAAYAAAD9//v/AQAPAAcAAAD9//z/AQAPAAgAAAD9//3/AQAPAAkAAAD6//7/AQAQAAYAAAD7//7/AQARAAYAAAD8//7/AQASAAYAAAD9//7/AQAPAAYAAAADAP7/AQARAAYAAAAEAP7/AQASAAYAAAD5//3/AQAPAAkAAAD5//7/AQAPAAYAAAD5//r/AQAPAAYAAAD5//v/AQAPAAcAAAD5//z/AQAPAAgAAAD5/wUAAQAPAAkAAAD6/wUAAQAQAAkAAAD7/wUAAQARAAkAAAD8/wUAAQASAAkAAAD9/wUAAQAPAAkAAAD+/wUAAQAQAAkAAAAAAAUAAQASAAkAAAABAAUAAQAPAAkAAAACAAUAAQAQAAkAAAADAAUAAQARAAkAAAAEAAUAAQASAAkAAAD5/wEAAQAPAAkAAAD6/wEAAQAQAAkAAAD7/wAAAQARAAgAAAD8/wAAAQASAAgAAAD9////AQAPAAcAAAD+////AQAQAAcAAAD/////AQARAAcAAAAAAP7/AQASAAYAAAABAP7/AQAPAAYAAAACAP7/AQAQAAYAAAAFAP//AQAMAAcAAAAFAAAAAQAMAAcAAAA=")
@@ -799,5 +800,14 @@ shape = SubResource("RectangleShape2D_nlseb")
 position = Vector2(98.5, -80.25)
 shape = SubResource("RectangleShape2D_c5ldn")
 debug_color = Color(0.99572, 0, 0.20021, 0.42)
+
+[node name="enemy" parent="." instance=ExtResource("5_vhlni")]
+position = Vector2(-46, -115)
+
+[node name="enemy2" parent="." instance=ExtResource("5_vhlni")]
+position = Vector2(-70, -33)
+
+[node name="enemy3" parent="." instance=ExtResource("5_vhlni")]
+position = Vector2(1, 3)
 
 [connection signal="area_entered" from="RightDoor_r4" to="player" method="_on_right_door_r_4_area_entered"]

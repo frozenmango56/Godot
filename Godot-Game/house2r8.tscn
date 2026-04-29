@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://dwewn3gcefstl"]
 
-[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_dcbc7"]
+[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://player.tscn" id="1_dcbc7"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_u8155"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_xbyky"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_amgy5"]
@@ -1149,7 +1149,7 @@ texture = ExtResource("5_fsupi")
 11:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_vh0ra"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_0xhlk")
 
@@ -1173,7 +1173,7 @@ collision_mask = 0
 position = Vector2(-110, -80)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
+z_index = -2
 texture_filter = 1
 position = Vector2(0, -80)
 tile_map_data = PackedByteArray("AAAEAAQAAQASAAgAAAAEAAMAAQASAAcAAAAEAAIAAQASAAYAAAAEAAEAAQASAAkAAAAEAAAAAQASAAgAAAAEAP//AQASAAcAAAADAP//AQARAAcAAAACAP//AQAQAAcAAAABAP//AQAPAAcAAAAAAP//AQASAAcAAAD8////AQASAAcAAAD7////AQARAAcAAAD6////AQAQAAcAAAD5////AQAPAAcAAAD5/wAAAQAPAAgAAAD6/wAAAQAQAAgAAAD9/wAAAQAPAAgAAAD+/wAAAQAQAAgAAAD//wAAAQARAAgAAAAAAAAAAQASAAgAAAABAAAAAQAPAAgAAAACAAAAAQAQAAgAAAADAAAAAQARAAgAAAADAAEAAQARAAkAAAACAAEAAQAQAAkAAAABAAEAAQAPAAkAAAAAAAEAAQASAAkAAAD//wEAAQARAAkAAAD+/wEAAQAQAAkAAAD9/wEAAQAPAAkAAAD8/wEAAQASAAkAAAD7/wEAAQARAAkAAAD5/wIAAQAPAAYAAAD6/wIAAQAQAAYAAAD7/wIAAQARAAYAAAD8/wIAAQASAAYAAAD9/wIAAQAPAAYAAAD+/wIAAQAQAAYAAAD//wIAAQARAAYAAAAAAAIAAQASAAYAAAABAAIAAQAPAAYAAAACAAIAAQAQAAYAAAADAAIAAQARAAYAAAADAAMAAQARAAcAAAACAAMAAQAQAAcAAAABAAMAAQAPAAcAAAAAAAMAAQASAAcAAAD//wMAAQARAAcAAAD+/wMAAQAQAAcAAAD9/wMAAQAPAAcAAAD8/wMAAQASAAcAAAD7/wMAAQARAAcAAAD6/wMAAQAQAAcAAAD5/wMAAQAPAAcAAAD5/wQAAQAPAAgAAAD6/wQAAQAQAAgAAAD7/wQAAQARAAgAAAD8/wQAAQASAAgAAAD9/wQAAQAPAAgAAAADAAQAAQARAAgAAAACAAQAAQAQAAgAAAABAAQAAQAPAAgAAAAAAAQAAQASAAgAAAD//wQAAQARAAgAAAD+/wQAAQAQAAgAAAD///7/AQARAAYAAAD+//7/AQAQAAYAAAD//wUAAQARAAkAAAACAPr/AQAQAAYAAAACAPv/AQAQAAcAAAACAPz/AQAQAAgAAAACAP3/AQAQAAkAAAADAPr/AQARAAYAAAADAPv/AQARAAcAAAADAPz/AQARAAgAAAADAP3/AQARAAkAAAAEAPr/AQASAAYAAAAEAPv/AQASAAcAAAAEAPz/AQASAAgAAAAEAP3/AQASAAkAAAD+//r/AQAQAAYAAAD+//v/AQAQAAcAAAD+//z/AQAQAAgAAAD+//3/AQAQAAkAAAD///r/AQARAAYAAAD///v/AQARAAcAAAD///z/AQARAAgAAAD///3/AQARAAkAAAAAAPr/AQASAAYAAAAAAPv/AQASAAcAAAAAAPz/AQASAAgAAAAAAP3/AQASAAkAAAABAPr/AQAPAAYAAAABAPv/AQAPAAcAAAABAPz/AQAPAAgAAAABAP3/AQAPAAkAAAD6//r/AQAQAAYAAAD6//v/AQAQAAcAAAD6//z/AQAQAAgAAAD6//3/AQAQAAkAAAD7//r/AQARAAYAAAD7//v/AQARAAcAAAD7//z/AQARAAgAAAD7//3/AQARAAkAAAD8//r/AQASAAYAAAD8//v/AQASAAcAAAD8//z/AQASAAgAAAD8//3/AQASAAkAAAD9//r/AQAPAAYAAAD9//v/AQAPAAcAAAD9//z/AQAPAAgAAAD9//3/AQAPAAkAAAD6//7/AQAQAAYAAAD8//7/AQASAAYAAAD9//7/AQAPAAYAAAADAP7/AQARAAYAAAAEAP7/AQASAAYAAAD5//3/AQAPAAkAAAD5//7/AQAPAAYAAAD5//r/AQAPAAYAAAD5//v/AQAPAAcAAAD5//z/AQAPAAgAAAD5/wUAAQAPAAkAAAD6/wUAAQAQAAkAAAD7/wUAAQARAAkAAAD8/wUAAQASAAkAAAD9/wUAAQAPAAkAAAD+/wUAAQAQAAkAAAAAAAUAAQASAAkAAAABAAUAAQAPAAkAAAACAAUAAQAQAAkAAAADAAUAAQARAAkAAAAEAAUAAQASAAkAAAAFAP//AQAMAAcAAAAFAAAAAQAMAAcAAAD5/wEAAQAPAAkAAAD6/wEAAQAQAAkAAAD7/wAAAQARAAgAAAD8/wAAAQASAAgAAAD9////AQAPAAcAAAD+////AQAQAAcAAAD/////AQARAAcAAAAAAP7/AQASAAYAAAABAP7/AQAPAAYAAAACAP7/AQAQAAYAAAD7//7/AQARAAYAAAD4////AQAMAAcAAAD4/wAAAQAMAAcAAAA=")
@@ -1191,19 +1191,19 @@ texture_filter = 1
 tile_set = SubResource("TileSet_tem3n")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD8//r/AAADABAAAAD8//v/AAADABAAAAD8//z/AAADABAAAAD8//3/AAADABAAAAD8//7/AAADABAAAAD8//n/AAADABAAAAD8//j/AAADABAAAAD///b/AAADABAAAAAAAPb/AAADABAAAAABAPb/AAADABAAAAACAPb/AAADABAAAAADAPb/AAADABAAAAABAP3/AAADABAAAAABAP7/AAADABAAAAABAP//AAADABAAAAA=")
+tile_map_data = PackedByteArray("AAD8//r/AAADABAAAAD8//v/AAADABAAAAD8//z/AAADABAAAAD8//3/AAADABAAAAD8//7/AAADABAAAAD8//n/AAADABAAAAD8//j/AAADABAAAAD///b/AAADABAAAAAAAPb/AAADABAAAAABAPb/AAADABAAAAACAPb/AAADABAAAAADAPb/AAADABAAAAAAAPn/AAADABAAAAAAAPr/AAADABAAAAAAAPv/AAADABAAAAAAAPz/AAADABAAAAAAAP3/AAADABAAAAAAAP7/AAADABAAAAAAAP//AAADABAAAAA=")
 tile_set = SubResource("TileSet_vh0ra")
 
-[node name="LeftDoor_r8" type="Area2D" parent="." groups=["house2_r2-1"]]
+[node name="RightDoor_r8" type="Area2D" parent="."]
 position = Vector2(-19, -35)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor_r8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor_r8"]
 position = Vector2(114.5, -45)
 shape = SubResource("RectangleShape2D_5puq2")
 
-[node name="RightDoor_r8" type="Area2D" parent="."]
+[node name="LeftDoor_r8" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor_r8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor_r8"]
 position = Vector2(-127.5, -80)
 shape = SubResource("RectangleShape2D_nlseb")
 
@@ -1219,11 +1219,8 @@ position = Vector2(-78, -157)
 [node name="enemy4" parent="." instance=ExtResource("6_as4tk")]
 position = Vector2(-88, -29)
 
-[node name="enemy5" parent="." instance=ExtResource("6_as4tk")]
-position = Vector2(-29, -96)
-
 [node name="enemy6" parent="." instance=ExtResource("7_xq6qa")]
-position = Vector2(36, -80)
+position = Vector2(22, -78)
 
 [node name="Boundary1" type="CollisionShape2D" parent="."]
 position = Vector2(-130.5, -78.5)
@@ -1234,3 +1231,6 @@ debug_color = Color(0.994183, 0, 0.226144, 0.42)
 position = Vector2(99.5, -78)
 shape = SubResource("RectangleShape2D_u8155")
 debug_color = Color(0.998415, 0, 0.142615, 0.42)
+
+[connection signal="area_entered" from="RightDoor_r8" to="player" method="_on_right_door_r_8_area_entered"]
+[connection signal="area_entered" from="LeftDoor_r8" to="player" method="_on_left_door_r_8_area_entered"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://os44fvjgfjrn"]
+[gd_scene load_steps=27 format=3 uid="uid://os44fvjgfjrn"]
 
-[ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops.gd" id="1_111ox"]
+[ext_resource type="Script" uid="uid://dqux4dl221giw" path="res://sandcyclops.gd" id="1_mh65t"]
 [ext_resource type="Texture2D" uid="uid://dj7ct0gyneuiq" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope4/cyclops_sand.png" id="2_lkvpx"]
-[ext_resource type="Script" uid="uid://bygw804bfdssg" path="res://animated_sprite_2d.gd" id="3_sekw1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lunue"]
 atlas = ExtResource("2_lkvpx")
@@ -198,12 +197,12 @@ size = Vector2(16, 14)
 
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_111ox")
+motion_mode = 1
+script = ExtResource("1_mh65t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"walk-up"
-script = ExtResource("3_sekw1")
 
 [node name="Detection_Area" type="Area2D" parent="."]
 

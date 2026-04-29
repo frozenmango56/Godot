@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8sl8g214jheq"]
+[gd_scene load_steps=27 format=3 uid="uid://b8sl8g214jheq"]
 
 [ext_resource type="Script" uid="uid://d2hsrwc42eqhr" path="res://cyclops.gd" id="1_x367s"]
 [ext_resource type="Texture2D" uid="uid://qn421ompf0v3" path="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope2/SpriteSheet.png" id="2_2agp5"]
-[ext_resource type="Script" uid="uid://bygw804bfdssg" path="res://animated_sprite_2d.gd" id="3_ftciv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2d25"]
 atlas = ExtResource("2_2agp5")
@@ -198,12 +197,12 @@ size = Vector2(16, 14)
 
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
+motion_mode = 1
 script = ExtResource("1_x367s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"idle-down"
-script = ExtResource("3_ftciv")
 
 [node name="Detection_Area" type="Area2D" parent="."]
 

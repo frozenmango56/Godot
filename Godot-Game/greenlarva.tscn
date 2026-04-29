@@ -197,6 +197,7 @@ size = Vector2(16, 14)
 
 [node name="enemy" type="CharacterBody2D"]
 texture_filter = 1
+motion_mode = 1
 script = ExtResource("1_m04gq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -217,6 +218,8 @@ shape = SubResource("CircleShape2D_e3pcd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_e3pcd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [connection signal="area_entered" from="Detection_Area" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="Detection_Area" to="." method="_on_detection_area_area_exited"]

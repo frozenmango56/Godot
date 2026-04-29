@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://b74llyd5iwd7j"]
 
-[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://greenninja.tscn" id="1_4godp"]
-[ext_resource type="Script" uid="uid://d6h1u64166ta" path="res://house_1.gd" id="1_oxvm4"]
+[ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://player.tscn" id="1_4godp"]
+[ext_resource type="Script" uid="uid://d6h1u64166ta" path="res://house1.gd" id="1_oxvm4"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_o5obl"]
 [ext_resource type="Texture2D" uid="uid://b825ahig7bkg" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_psure"]
 [ext_resource type="Texture2D" uid="uid://bk25emleby7q0" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInterior.png" id="4_y3gkq"]
@@ -849,14 +849,8 @@ position = Vector2(542, -188)
 [node name="coin9" parent="." instance=ExtResource("6_psure")]
 position = Vector2(66, -184)
 
-[node name="coin10" parent="." instance=ExtResource("6_psure")]
-position = Vector2(396, -60)
-
 [node name="coin11" parent="." instance=ExtResource("6_psure")]
 position = Vector2(443, -564)
-
-[node name="coin12" parent="." instance=ExtResource("6_psure")]
-position = Vector2(-23, -86)
 
 [node name="enemy4" parent="." instance=ExtResource("7_y3gkq")]
 position = Vector2(386, -496)

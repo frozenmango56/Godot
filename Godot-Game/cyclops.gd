@@ -41,8 +41,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("walk-up")
 				facing = "up"
 		else:
-			#if attacking or dead stop all horizontal movement
-			velocity.x = 0
+			velocity = Vector2(0,0)
 		#move the character and handle collisions
 		move_and_slide()
 
@@ -55,11 +54,11 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	#print("in hit area:", area.name, area.get_groups())
 	if area.is_in_group("sword"):
 		#print("hit by sword")
-		health -= 1
+		health -= globalvariables.sword_damage
 		if health <= 0:
 			queue_free()
 			globalvariables.monsters_defeated += 1
-			var random = round(randf_range(1,4))
+			var random = round(randf_range(1,3))
 			if random == 1:
 				var new_object = potion.instantiate()
 				get_parent().add_child(new_object)

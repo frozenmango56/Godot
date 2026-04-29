@@ -1,5 +1,22 @@
-[gd_scene format=3 uid="uid://wqe45ldkn2i"]
+[gd_scene load_steps=4 format=3 uid="uid://wqe45ldkn2i"]
 
-[node name="ninjastar" type="StaticBody2D"]
+[ext_resource type="Texture2D" uid="uid://b0l4nybas8lij" path="res://assests/Ninja Adventure - Asset Pack/Items/Projectile/Shuriken.png" id="1_8l5ix"]
+[ext_resource type="Script" uid="uid://b6inqatxg681j" path="res://ninjastar.gd" id="1_mqp80"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqp80"]
+radius = 8.06226
+
+[node name="ninjastar" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_mqp80")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8l5ix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mqp80")
