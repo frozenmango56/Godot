@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var diagonal_speed = 70.71
-@export var direction = 0
+@export var direction = Vector2(0,0)
 @onready var skin = $AnimatedSpriteGreen
 var input = ""
 var death = false
@@ -14,21 +14,85 @@ func _enter_tree() -> void:
 	$AnimatedSpriteGreen.visible = true
 	$AnimatedSpriteSand.visible = false
 	$AnimatedSpriteBlack.visible = false
+	$AnimatedSpriteBlue.visible = false
+	$AnimatedSpritePurple.visible = false
+	$AnimatedSpriteGold.visible = false
+	$AnimatedSpriteInvisible.visible = false
+	$AnimatedSpriteWhite.visible = false
+	globalvariables.goldenmode = false
+	globalvariables.stealthmode = false
+	$Smokebomb.visible = false
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		input += char(event.unicode)
 		if input.ends_with("supersword"):
-			globalvariables.sword_damage = 3
+			globalvariables.sword_damage = 5
+		elif input.ends_with("normalsword"):
+			globalvariables.sword_damage = 1
 		elif input.ends_with("sneaky"):
 			skin.visible = false
 			skin = $AnimatedSpriteBlack
 			skin.visible = true
-		elif input.ends_with("greenninja"):
+			globalvariables.enemy_sight = .75
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		elif input.ends_with("green"):
 			skin.visible = false
 			skin = $AnimatedSpriteGreen
 			skin.visible = true
-
+			globalvariables.enemy_sight = 1
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		elif input.ends_with("iceninja"):
+			skin.visible = false
+			skin = $AnimatedSpriteBlue
+			skin.visible = true
+			globalvariables.enemy_sight = 1
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		elif input.ends_with("purple"):
+			skin.visible = false
+			skin = $AnimatedSpritePurple
+			skin.visible = true
+			globalvariables.enemy_sight = 2
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		elif input.ends_with("sandhunter"):
+			skin.visible = false
+			skin = $AnimatedSpriteSand
+			skin.visible = true
+			globalvariables.enemy_sight = 1
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		elif input.ends_with("golden"):
+			skin.visible = false
+			skin = $AnimatedSpriteGold
+			skin.visible = true
+			globalvariables.enemy_sight = 0
+			globalvariables.goldenmode = true
+			globalvariables.stealthmode = false
+		elif input.ends_with("stealthmode"):
+			skin.visible = false
+			skin = $AnimatedSpriteInvisible
+			skin.visible = true
+			globalvariables.enemy_sight = 0
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = true
+			$Smokebomb.visible = true
+			$Smokebomb.play("default")
+			await get_tree().create_timer(.3).timeout
+			$Smokebomb.visible = false
+			input = ""
+		elif input.ends_with("snowninja"):
+			skin.visible = false
+			skin = $AnimatedSpriteWhite
+			skin.visible = true
+			globalvariables.enemy_sight = 1
+			globalvariables.goldenmode = false
+			globalvariables.stealthmode = false
+		else:
+			pass
 func _physics_process(delta):
 	$CanvasLayer/Label.text = "Coins: " + str(globalvariables.coins_collected) +  "\nHealth: " + str(globalvariables.player_health)
 
@@ -124,7 +188,7 @@ func _on_house_1_area_entered(area: Area2D) -> void:
 		
 func _on_exit_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"): 
-		globalvariables.spawn_position = Vector2(3335,-148)
+		globalvariables.spawn_position = Vector2(3335,-160)
 		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
 		
 ##########################################################################

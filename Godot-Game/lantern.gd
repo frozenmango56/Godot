@@ -7,7 +7,7 @@ var speed = 20.0
 @onready var coin = preload("res://coin.tscn")
 var health = 3
 var facing = "down"
-var direction = 0
+var direction = Vector2(0,0)
 #this variable will hold the reference to the player node once its detected
 var player_node: Node2D = null
 var blast_range = false
@@ -21,12 +21,13 @@ func _ready():
 
 #This function is called ever physics frame
 func _physics_process(delta):
+	$Detection_Area/CollisionShape2D.shape.radius = 65.12 * globalvariables.enemy_sight
+	player_node = $"../player"
+	direction = (player_node.global_position - global_position).normalized()
 	#Only proceed with movement logic if not attacking
 	if not is_dead:
 		#Only move if the player has been detected.
-		if player_detected and is_instance_valid(player_node):
-			#caculate the direction from the cyclops to the player and normalize it.
-			direction = (player_node.global_position - global_position).normalized()
+		if (player_detected or globalvariables.goldenmode == true) and is_instance_valid(player_node) and globalvariables.stealthmode == false:
 			#set velocity
 			velocity = direction * speed
 			if velocity.x > 0 and direction.x > abs(direction.y):
@@ -42,8 +43,8 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("walk-up")
 				facing = "up"
 		else:
-			#if attacking or dead stop all horizontal movement
-			velocity.x = 0
+			velocity = Vector2(0,0)
+			$AnimatedSprite2D.play("idle-" + facing)
 		#move the character and handle collisions
 		move_and_slide()
 
@@ -58,7 +59,6 @@ func explode():
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		player_node = $"../player"
 		player_detected = true
 		blast_range = true
 

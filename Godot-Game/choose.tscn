@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8lemuglbwsyl"]
+[gd_scene load_steps=6 format=3 uid="uid://c8lemuglbwsyl"]
 
 [ext_resource type="Texture2D" uid="uid://daoqnuipouy6g" path="res://assests/Ninja Adventure - Asset Pack/Ui/Dialog/FacesetBox.png" id="1_20uec"]
 [ext_resource type="Texture2D" uid="uid://bwuep3nole2k5" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/Faceset.png" id="2_dyeh0"]
 [ext_resource type="Texture2D" uid="uid://begvhubr3sf1v" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/NinjaPurple/Faceset.png" id="3_20uec"]
 [ext_resource type="Texture2D" uid="uid://bgc3t2xfuo6qd" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="4_pd023"]
 [ext_resource type="Texture2D" uid="uid://d1doqqqcjllua" path="res://assests/Ninja Adventure - Asset Pack/Ui/Dialog/YesButton.png" id="5_dyeh0"]
-[ext_resource type="Script" uid="uid://ca1x8kdmr04fd" path="res://button.gd" id="5_l6qrj"]
 
 [node name="Choose" type="Node2D"]
 
@@ -35,7 +34,6 @@ offset_left = 35.0
 offset_top = 75.0
 offset_right = 83.0
 offset_bottom = 98.0
-script = ExtResource("5_l6qrj")
 
 [node name="YesButton" type="Sprite2D" parent="Button"]
 position = Vector2(24, 11.5)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://bsu1ejcjwr4uu"]
 
-[ext_resource type="Script" uid="uid://dvv4er01urg3n" path="res://player.gd" id="1_8aqai"]
+[ext_resource type="Script" uid="uid://blrbtubsnptww" path="res://master.gd" id="1_viqro"]
 [ext_resource type="Texture2D" uid="uid://cslvuecrbwcb6" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/OldMan3/SpriteSheet.png" id="2_ofr4s"]
 [ext_resource type="Texture2D" uid="uid://dr7mpflgl73oj" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="2_viqro"]
 [ext_resource type="Texture2D" uid="uid://b148vrth2am6p" path="res://assests/Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SpriteSheet.png" id="3_ofr4s"]
@@ -211,9 +211,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(14, 15)
 
-[node name="player" type="CharacterBody2D"]
+[node name="master" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_8aqai")
+script = ExtResource("1_viqro")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

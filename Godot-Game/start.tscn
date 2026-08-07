@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm32vtbpb4o2x" path="res://easy_startbutton.gd" id="1_ots34"]
 [ext_resource type="Script" uid="uid://cu1o0r02smqxt" path="res://start.gd" id="1_qn1rc"]
-[ext_resource type="Script" uid="uid://cvqy385r8ii7x" path="res://normal_startbutton_2.gd" id="3_1n0d2"]
+[ext_resource type="Script" uid="uid://cvqy385r8ii7x" path="res://normal_startbutton.gd" id="3_1n0d2"]
 [ext_resource type="Script" uid="uid://c3jbmru8aojck" path="res://hard_startbutton.gd" id="4_y5hus"]
 
 [node name="Node2D" type="StaticBody2D"]

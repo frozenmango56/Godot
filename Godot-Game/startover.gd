@@ -5,5 +5,5 @@ func _on_pressed() -> void:
 	globalvariables.facing = "down"
 	globalvariables.coins_collected = 0
 	globalvariables.monsters_defeated = 0
-	globalvariables.spawn_position = Vector2(3335,-148)
+	globalvariables.spawn_position = Vector2(3335,-160)
 	globalvariables.sword_damage = 1
