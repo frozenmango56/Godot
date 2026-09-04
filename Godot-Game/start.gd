@@ -3,8 +3,8 @@ extends StaticBody2D
 var input = ""
 
 func code1():
-	globalvariables.player_health = 1000000000
-	globalvariables.max_player_health = 1000000000
+	globalvariables.player_health = 1000000
+	globalvariables.max_player_health = 1000000
 	get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
 	
 func code2():

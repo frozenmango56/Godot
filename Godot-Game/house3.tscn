@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dw2wtgja2xkqb"]
+[gd_scene load_steps=13 format=4 uid="uid://dw2wtgja2xkqb"]
 
 [ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://player.tscn" id="1_paors"]
 [ext_resource type="Texture2D" uid="uid://blkk76sixj5l8" path="res://assests/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_kcq22"]
@@ -755,6 +755,9 @@ texture = ExtResource("4_2invo")
 [sub_resource type="TileSet" id="TileSet_tem3n"]
 sources/0 = SubResource("TileSetAtlasSource_8xm3c")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcdnf"]
+size = Vector2(16, 1)
+
 [node name="house1" type="StaticBody2D"]
 
 [node name="player" parent="." instance=ExtResource("1_paors")]
@@ -780,3 +783,11 @@ tile_set = SubResource("TileSet_tem3n")
 
 [node name="master" parent="." instance=ExtResource("5_dcdnf")]
 position = Vector2(0, -81)
+
+[node name="Exit3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit3"]
+position = Vector2(-8, -0.5)
+shape = SubResource("RectangleShape2D_dcdnf")
+
+[connection signal="area_entered" from="Exit3" to="player" method="_on_exit_3_area_entered"]

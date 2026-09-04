@@ -262,7 +262,7 @@ radius = 67.0075
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtiie"]
 size = Vector2(15, 15)
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" groups=["lantern"]]
 z_index = 1
 texture_filter = 1
 collision_layer = 2
@@ -276,7 +276,7 @@ animation = &"walk-down"
 frame_progress = 0.682932
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-z_index = -1
+visible = false
 texture_filter = 1
 position = Vector2(0, -25)
 scale = Vector2(2, 2)

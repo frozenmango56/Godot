@@ -21,7 +21,9 @@ func _enter_tree() -> void:
 	$AnimatedSpriteWhite.visible = false
 	globalvariables.goldenmode = false
 	globalvariables.stealthmode = false
+	globalvariables.enemy_sight = 1
 	$Smokebomb.visible = false
+	
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -69,7 +71,7 @@ func _input(event):
 			skin.visible = false
 			skin = $AnimatedSpriteGold
 			skin.visible = true
-			globalvariables.enemy_sight = 0
+			globalvariables.enemy_sight = 1
 			globalvariables.goldenmode = true
 			globalvariables.stealthmode = false
 		elif input.ends_with("stealthmode"):
@@ -120,7 +122,7 @@ func _physics_process(delta):
 				return
 			elif globalvariables.player_health > 0:
 				if punch_sound == true:
-					$Sword2.play()
+					$SwordSound.play()
 					punch_sound = false
 				skin.play("punch-" + globalvariables.facing)
 				await get_tree().create_timer(.4).timeout
@@ -170,12 +172,12 @@ func _on_fresh_water_area_exited(area: Area2D) -> void:
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
-		$AudioStreamPlayer2D.play()
+		$Coin.play()
 		globalvariables.coins_collected += 1
 		$CanvasLayer/Label.text = "SCORE: " + str(globalvariables.coins_collected)
 		$CanvasLayer/Label.text = "LIVES: " + str(globalvariables.player_health)
 	elif area.is_in_group("health_potion"):
-		$AudioStreamPlayer2D2.play()
+		$Potion.play()
 	else:
 		pass
 		
@@ -188,7 +190,7 @@ func _on_house_1_area_entered(area: Area2D) -> void:
 		
 func _on_exit_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"): 
-		globalvariables.spawn_position = Vector2(3335,-160)
+		globalvariables.spawn_position = Vector2(3335,-170)
 		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
 		
 ##########################################################################
@@ -311,6 +313,16 @@ func _on_bottom_door_r_10_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		globalvariables.spawn_position = Vector2(-80,-436)
 		get_tree().call_deferred("change_scene_to_file", "res://house2r9.tscn")
+############################################################################
+#house 3 doors
+func _on_house_3_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(-8,-11)
+		get_tree().call_deferred("change_scene_to_file", "res://house3.tscn")
+func _on_exit_3_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.spawn_position = Vector2(2007.5,-1215)
+		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
 ############################################################################
 func _on_inventory_pressed() -> void:
 	pass # Replace with function body.

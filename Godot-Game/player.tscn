@@ -2322,7 +2322,7 @@ sprite_frames = SubResource("SpriteFrames_op7ga")
 
 [node name="AnimatedSpriteWhite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_723b7")
-animation = &"idle-right"
+animation = &"idle-down"
 
 [node name="AnimatedSpriteSand" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qsq1d")
@@ -2342,7 +2342,7 @@ animation = &"idle-down"
 
 [node name="AnimatedSpriteInvisible" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_606se")
-animation = &"dead"
+animation = &"idle-down"
 
 [node name="AnimatedSpriteGold" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pskma")
@@ -2399,13 +2399,13 @@ theme_override_font_sizes/font_size = 30
 text = "X"
 script = ExtResource("11_bwjto")
 
-[node name="Sword2" type="AudioStreamPlayer2D" parent="."]
+[node name="SwordSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_pylmc")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_pbfsw")
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="Potion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_5tmop")
 
 [connection signal="area_entered" from="Detection Area" to="." method="_on_detection_area_area_entered"]

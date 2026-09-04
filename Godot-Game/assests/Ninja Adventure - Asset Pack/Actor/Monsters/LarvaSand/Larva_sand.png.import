@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp8313tpsrrvp"
-path="res://.godot/imported/Larva_sand.png-b1315bf66828c27e9a8c3deacddbe5a5.ctex"
+path="res://.godot/imported/Larva_sand.png-0d7bd22b564779aee17cc05ef9fa2ed8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/Larva_Sand/Larva_sand.png"
-dest_files=["res://.godot/imported/Larva_sand.png-b1315bf66828c27e9a8c3deacddbe5a5.ctex"]
+source_file="res://assests/Ninja Adventure - Asset Pack/Actor/Monsters/LarvaSand/Larva_sand.png"
+dest_files=["res://.godot/imported/Larva_sand.png-0d7bd22b564779aee17cc05ef9fa2ed8.ctex"]
 
 [params]
 

@@ -11,7 +11,6 @@ var monsters_defeated = 0
 var sand_defeated = 0
 var sword_damage = 1
 var hit = false
-var skin = "$AnimatedSpriteGreen"
 var enemy_sight = 1
 var goldenmode = false
 var stealthmode = false

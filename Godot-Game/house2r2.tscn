@@ -959,9 +959,6 @@ shape = SubResource("RectangleShape2D_c5ldn")
 debug_color = Color(0.99572, 0, 0.20021, 0.42)
 
 [node name="enemy" parent="." instance=ExtResource("5_ngvm4")]
-position = Vector2(-16, -117)
-
-[node name="enemy2" parent="." instance=ExtResource("5_ngvm4")]
 position = Vector2(-78, 5)
 
 [connection signal="area_entered" from="RightDoor_r2" to="player" method="_on_right_door_r_2_area_entered"]

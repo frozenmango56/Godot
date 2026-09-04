@@ -1,20 +1,17 @@
 extends StaticBody2D
-	
-#func _ready():
-#@onready var newlarva = preload("res://larva2.tscn")
-#var player_instance = newlarva.instantiate()
-##@onready var greenninja = preload("res://greenninja2.tscn")
-##@onready var blackninja = preload("res://blackninja.tscn")
-##@onready var purpleninja = preload("res://purpleninja2.tscn")
-##@onready var spawn_marker = $"."
-##
-#func _ready():
-	#self.add_child(player_instance)
-	##instantiate
-	#var player = greenninja.instantiate()
-	##add the instantied item to the game tree at marker 2d
-	#spawn_marker.add_child(player)
-	## Remove the node from the old parent
-	#$".".remove_child(player)
-	## Add the node to the new parent
-	#$"..".call_deferred("add_child", player)
+
+func _ready():
+	for lantern in get_tree().get_nodes_in_group("lantern"):
+		lantern.burn_tree.connect(_on_burn_tree)
+
+func _on_burn_tree(tree_number):
+	if tree_number == "DeadTree1":
+		$DeadTree1.queue_free()
+	if tree_number == "DeadTree2":
+		$DeadTree2.queue_free()
+	if tree_number == "DeadTree3":
+		$DeadTree3.queue_free()
+	if tree_number == "DeadTree4":
+		$DeadTree4.queue_free()
+	if tree_number == "DeadTree5":
+		$DeadTree5.queue_free()
