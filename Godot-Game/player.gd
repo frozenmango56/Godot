@@ -323,6 +323,10 @@ func _on_exit_3_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		globalvariables.spawn_position = Vector2(2007.5,-1215)
 		get_tree().call_deferred("change_scene_to_file", "res://world.tscn")
+	#func _on_inventory_pressed() -> void:
+	#pass # Replace with function body.
 ############################################################################
-func _on_inventory_pressed() -> void:
-	pass # Replace with function body.
+#Portal entrances
+func _on_portal_entrances_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		globalvariables.player_health = 100000

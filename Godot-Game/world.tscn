@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bqnmjf266upym"]
+[gd_scene load_steps=35 format=4 uid="uid://bqnmjf266upym"]
 
 [ext_resource type="Script" uid="uid://djpek11qcftep" path="res://world.gd" id="1_ikiii"]
 [ext_resource type="PackedScene" uid="uid://cxwwm2ee3dhpa" path="res://player.tscn" id="2_cbp6q"]
@@ -607,7 +607,7 @@ texture = ExtResource("4_bc84e")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xdth8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d62yq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26xuy"]
 texture = ExtResource("5_wukud")
 0:0/0 = 0
 0:0/0/z_index = 1
@@ -1933,7 +1933,7 @@ texture = ExtResource("5_wukud")
 
 [sub_resource type="TileSet" id="TileSet_xjnkp"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_d62yq")
+sources/0 = SubResource("TileSetAtlasSource_26xuy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r24r"]
 texture = ExtResource("6_il2jm")
@@ -2242,6 +2242,9 @@ size = Vector2(19, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc84e"]
 size = Vector2(28.0001, 24.8321)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il2jm"]
+size = Vector2(10, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wukud"]
 size = Vector2(28, 25)
 
@@ -2312,6 +2315,29 @@ shape = SubResource("RectangleShape2D_26xuy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadTree1"]
 position = Vector2(3600, -285.584)
 shape = SubResource("RectangleShape2D_bc84e")
+
+[node name="PortalEntrances" type="Area2D" parent="."]
+position = Vector2(3600, -286)
+
+[node name="Portal1" type="CollisionShape2D" parent="PortalEntrances"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal2" type="CollisionShape2D" parent="PortalEntrances"]
+position = Vector2(-2064, -206.5)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal3" type="CollisionShape2D" parent="PortalEntrances"]
+position = Vector2(-1920, 321.5)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal4" type="CollisionShape2D" parent="PortalEntrances"]
+position = Vector2(-3680, -222.5)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal5" type="CollisionShape2D" parent="PortalEntrances"]
+position = Vector2(-3152, 241.5)
+shape = SubResource("RectangleShape2D_il2jm")
 
 [node name="DeadTree2" type="Area2D" parent="." groups=["DeadTree2"]]
 
@@ -2708,3 +2734,4 @@ position = Vector2(3656, -290)
 [connection signal="area_entered" from="House1" to="player" method="_on_house_1_area_entered"]
 [connection signal="area_entered" from="House2r1" to="player" method="_on_house_2r_1_area_entered"]
 [connection signal="area_entered" from="House3" to="player" method="_on_house_3_area_entered"]
+[connection signal="area_entered" from="PortalEntrances" to="player" method="_on_portal_entrances_area_entered"]
