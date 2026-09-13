@@ -2242,11 +2242,11 @@ size = Vector2(19, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc84e"]
 size = Vector2(28.0001, 24.8321)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_il2jm"]
-size = Vector2(10, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wukud"]
 size = Vector2(28, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il2jm"]
+size = Vector2(6, 1)
 
 [node name="world" type="StaticBody2D"]
 position = Vector2(-1, 0)
@@ -2316,29 +2316,6 @@ shape = SubResource("RectangleShape2D_26xuy")
 position = Vector2(3600, -285.584)
 shape = SubResource("RectangleShape2D_bc84e")
 
-[node name="PortalEntrances" type="Area2D" parent="."]
-position = Vector2(3600, -286)
-
-[node name="Portal1" type="CollisionShape2D" parent="PortalEntrances"]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_il2jm")
-
-[node name="Portal2" type="CollisionShape2D" parent="PortalEntrances"]
-position = Vector2(-2064, -206.5)
-shape = SubResource("RectangleShape2D_il2jm")
-
-[node name="Portal3" type="CollisionShape2D" parent="PortalEntrances"]
-position = Vector2(-1920, 321.5)
-shape = SubResource("RectangleShape2D_il2jm")
-
-[node name="Portal4" type="CollisionShape2D" parent="PortalEntrances"]
-position = Vector2(-3680, -222.5)
-shape = SubResource("RectangleShape2D_il2jm")
-
-[node name="Portal5" type="CollisionShape2D" parent="PortalEntrances"]
-position = Vector2(-3152, 241.5)
-shape = SubResource("RectangleShape2D_il2jm")
-
 [node name="DeadTree2" type="Area2D" parent="." groups=["DeadTree2"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadTree2"]
@@ -2364,6 +2341,36 @@ position = Vector2(-80, -509.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadTree5"]
 position = Vector2(528, 464)
 shape = SubResource("RectangleShape2D_wukud")
+
+[node name="Portal1" type="Area2D" parent="."]
+
+[node name="Portal1" type="CollisionShape2D" parent="Portal1"]
+position = Vector2(3600, -285)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal2" type="Area2D" parent="."]
+
+[node name="Portal2" type="CollisionShape2D" parent="Portal2"]
+position = Vector2(1536, -493)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal3" type="Area2D" parent="."]
+
+[node name="Portal3" type="CollisionShape2D" parent="Portal3"]
+position = Vector2(1680, 35)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal4" type="Area2D" parent="."]
+
+[node name="Portal4" type="CollisionShape2D" parent="Portal4"]
+position = Vector2(-80, -509)
+shape = SubResource("RectangleShape2D_il2jm")
+
+[node name="Portal5" type="Area2D" parent="."]
+
+[node name="Portal5" type="CollisionShape2D" parent="Portal5"]
+position = Vector2(448, -45)
+shape = SubResource("RectangleShape2D_il2jm")
 
 [node name="enemy" parent="." instance=ExtResource("7_wjb0r")]
 position = Vector2(127, 100)
@@ -2438,7 +2445,7 @@ position = Vector2(3285, -438)
 position = Vector2(2801, 118)
 
 [node name="enemy25" parent="." instance=ExtResource("10_4h6ng")]
-position = Vector2(361, -13)
+position = Vector2(400, -28)
 
 [node name="enemy26" parent="." instance=ExtResource("10_4h6ng")]
 position = Vector2(1370, -572)
@@ -2734,4 +2741,8 @@ position = Vector2(3656, -290)
 [connection signal="area_entered" from="House1" to="player" method="_on_house_1_area_entered"]
 [connection signal="area_entered" from="House2r1" to="player" method="_on_house_2r_1_area_entered"]
 [connection signal="area_entered" from="House3" to="player" method="_on_house_3_area_entered"]
-[connection signal="area_entered" from="PortalEntrances" to="player" method="_on_portal_entrances_area_entered"]
+[connection signal="area_entered" from="Portal1" to="player" method="_on_portal_1_area_entered"]
+[connection signal="area_entered" from="Portal2" to="player" method="_on_portal_2_area_entered"]
+[connection signal="area_entered" from="Portal3" to="player" method="_on_portal_3_area_entered"]
+[connection signal="area_entered" from="Portal4" to="player" method="_on_portal_4_area_entered"]
+[connection signal="area_entered" from="Portal5" to="player" method="_on_portal_5_area_entered"]

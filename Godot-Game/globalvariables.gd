@@ -14,3 +14,4 @@ var hit = false
 var enemy_sight = 1
 var goldenmode = false
 var stealthmode = false
+var treesburned = [false, false, false, false, false]

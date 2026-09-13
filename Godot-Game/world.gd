@@ -13,6 +13,27 @@ func _ready():
 	$Portal5.monitorable = false
 	for lantern in get_tree().get_nodes_in_group("lantern"):
 		lantern.burn_tree.connect(_on_burn_tree)
+	#if tree was already burned
+	if globalvariables.treesburned[0] == true:
+		$DeadTree1.queue_free()
+		$Portal1.monitoring = true
+		$Portal1.monitorable = true
+	if globalvariables.treesburned[1] == true:
+		$DeadTree2.queue_free()
+		$Portal2.monitoring = true
+		$Portal2.monitorable = true
+	if globalvariables.treesburned[2] == true:
+		$DeadTree3.queue_free()
+		$Portal3.monitoring = true
+		$Portal3.monitorable = true
+	if globalvariables.treesburned[3] == true:
+		$DeadTree4.queue_free()
+		$Portal4.monitoring = true
+		$Portal4.monitorable = true
+	if globalvariables.treesburned[4] == true:
+		$DeadTree5.queue_free()
+		$Portal5.monitoring = true
+		$Portal5.monitorable = true
 
 func _on_burn_tree(tree_number):
 	if tree_number == "DeadTree1":
